@@ -8,37 +8,37 @@
 	let isSubmitting = false;
 
 	onMount(() => {
-		// Dynamically load Turnstile script
-		const script = document.createElement('script');
-		script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-		script.async = true;
-		script.defer = true;
+		// Check if the Turnstile script is already loaded
+		if (!document.querySelector('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]')) {
+			const script = document.createElement('script');
+			script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+			script.async = true;
+			script.defer = true;
+			document.head.appendChild(script);
+		}
 
-		// Ensure Turnstile initializes
-		script.onload = () => {
-			if (window.turnstile) {
-				window.turnstile.render('.cf-turnstile', {
-					sitekey: '0x4AAAAAAA2KSyZlk7120yhk',
-				});
-			}
-		};
-
-		document.head.appendChild(script);
+		// Ensure Turnstile widget is rendered only once
+		const existingWidget = document.querySelector('.cf-turnstile');
+		if (existingWidget && !existingWidget.getAttribute('data-rendered')) {
+			window.turnstile.render('.cf-turnstile', {
+				sitekey: '0x4AAAAAAA2KSyZlk7120yhk',
+			});
+			existingWidget.setAttribute('data-rendered', 'true');
+		}
 	});
 
 	async function submitForm() {
 		isSubmitting = true;
 		try {
-			// Ensure the Turnstile widget exists
+			// Get the Turnstile token
 			const turnstileElement = document.querySelector('.cf-turnstile');
 			if (!turnstileElement) {
 				throw new Error('Turnstile widget not found');
 			}
 
-			// Retrieve the Turnstile token
 			const turnstileToken = turnstileElement.getAttribute('data-response');
-			if (!turnstileToken) {
-				throw new Error('Failed to retrieve Turnstile token');
+			if (!turnstileToken || turnstileToken === '') {
+				throw new Error('Turnstile token is empty or not set');
 			}
 
 			// Submit form data
@@ -89,7 +89,7 @@
 			bind:value={message}
 			rows="5"
 			required>
-		</textarea>
+        </textarea>
 
 		<!-- Turnstile Widget -->
 		<div class="cf-turnstile" data-sitekey="0x4AAAAAAA2KSyZlk7120yhk"></div>
