@@ -3,15 +3,36 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://svelte.dev/docs/kit/integrations
-	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
+		adapter: adapter(),
+		// Static headers won't work directly in vite.server for production;
+		// Configure caching at the deployment level (e.g., Cloudflare headers).
+		vite: {
+			build: {
+				rollupOptions: {
+					output: {
+						manualChunks: undefined, // Adjust chunking if needed
+					}
+				}
+			}
+		},
+		files: {
+			assets: 'static' // Ensure assets are included for custom headers.
+		},
+		headers: () => [
+			{
+				key: 'Cache-Control',
+				value: 'public, max-age=31536000, immutable',
+				for: '/static/*' // Cloudflare respects specific paths for headers.
+			},
+			{
+				key: 'Cache-Control',
+				value: 'no-cache',
+				for: '/*.html'
+			}
+		]
 	}
 };
 
