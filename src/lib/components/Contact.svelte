@@ -1,36 +1,14 @@
 <script>
-	import { onMount } from 'svelte';
-
 	let name = '';
 	let email = '';
 	let message = '';
 	let responseMessage = '';
 	let isSubmitting = false;
 
-	onMount(() => {
-		// Check if the Turnstile script is already loaded
-		if (!document.querySelector('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]')) {
-			const script = document.createElement('script');
-			script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-			script.async = true;
-			script.defer = true;
-			document.head.appendChild(script);
-		}
-
-		// Ensure Turnstile widget is rendered only once
-		const existingWidget = document.querySelector('.cf-turnstile');
-		if (existingWidget && !existingWidget.getAttribute('data-rendered')) {
-			window.turnstile.render('.cf-turnstile', {
-				sitekey: '0x4AAAAAAA2KSyZlk7120yhk',
-			});
-			existingWidget.setAttribute('data-rendered', 'true');
-		}
-	});
-
 	async function submitForm() {
 		isSubmitting = true;
 		try {
-			// Get the Turnstile token
+			// Get Turnstile token
 			const turnstileElement = document.querySelector('.cf-turnstile');
 			if (!turnstileElement) {
 				throw new Error('Turnstile widget not found');
@@ -38,7 +16,7 @@
 
 			const turnstileToken = turnstileElement.getAttribute('data-response');
 			if (!turnstileToken || turnstileToken === '') {
-				throw new Error('Turnstile token is empty or not set');
+				throw new Error('Turnstile token is empty or not set. Ensure you have interacted with the widget.');
 			}
 
 			// Submit form data
@@ -89,7 +67,7 @@
 			bind:value={message}
 			rows="5"
 			required>
-        </textarea>
+		</textarea>
 
 		<!-- Turnstile Widget -->
 		<div class="cf-turnstile" data-sitekey="0x4AAAAAAA2KSyZlk7120yhk"></div>
