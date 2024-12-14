@@ -1,25 +1,47 @@
 <script>
+	import { onMount } from 'svelte';
+
 	let name = '';
 	let email = '';
 	let message = '';
 	let responseMessage = '';
+	let turnstileToken = '';
 	let isSubmitting = false;
+
+	let widgetId = null;
+
+	// Explicitly render the Turnstile widget
+	onMount(() => {
+		const container = document.getElementById('turnstile-widget');
+		if (container) {
+			widgetId = window.turnstile.render(container, {
+				sitekey: '0x4AAAAAAA2KSyZlk7120yhk', // Replace with your actual sitekey
+				callback: (token) => {
+					turnstileToken = token;
+					console.log('Turnstile token generated:', token);
+				},
+				'error-callback': () => {
+					console.error('Turnstile failed to generate a token.');
+				},
+				'expired-callback': () => {
+					console.warn('Turnstile token expired. Resetting widget.');
+					turnstileToken = '';
+					window.turnstile.reset(widgetId);
+				},
+			});
+		}
+	});
 
 	async function submitForm() {
 		isSubmitting = true;
 		try {
-			// Get Turnstile token
-			const turnstileElement = document.querySelector('.cf-turnstile');
-			if (!turnstileElement) {
-				throw new Error('Turnstile widget not found');
+			if (!turnstileToken) {
+				throw new Error(
+					'Turnstile token is empty or not set. Ensure you have interacted with the widget.'
+				);
 			}
 
-			const turnstileToken = turnstileElement.getAttribute('data-response');
-			if (!turnstileToken || turnstileToken === '') {
-				throw new Error('Turnstile token is empty or not set. Ensure you have interacted with the widget.');
-			}
-
-			// Submit form data
+			// Submit form data along with the Turnstile token
 			const response = await fetch('https://email-worker.datable-as.workers.dev/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -69,8 +91,8 @@
 			required>
 		</textarea>
 
-		<!-- Turnstile Widget -->
-		<div class="cf-turnstile" data-sitekey="0x4AAAAAAA2KSyZlk7120yhk"></div>
+		<!-- Explicit Turnstile Widget -->
+		<div id="turnstile-widget"></div>
 
 		<button
 			type="submit"
