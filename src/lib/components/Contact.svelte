@@ -14,9 +14,13 @@
 		script.async = true;
 		script.defer = true;
 
-		// Add event listener to check when Turnstile is loaded
+		// Ensure Turnstile initializes
 		script.onload = () => {
-			console.log('Turnstile script loaded');
+			if (window.turnstile) {
+				window.turnstile.render('.cf-turnstile', {
+					sitekey: '0x4AAAAAAA2KSyZlk7120yhk',
+				});
+			}
 		};
 
 		document.head.appendChild(script);
@@ -85,7 +89,7 @@
 			bind:value={message}
 			rows="5"
 			required>
-  </textarea>
+		</textarea>
 
 		<!-- Turnstile Widget -->
 		<div class="cf-turnstile" data-sitekey="0x4AAAAAAA2KSyZlk7120yhk"></div>
