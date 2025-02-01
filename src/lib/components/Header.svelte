@@ -1,9 +1,9 @@
-<header class="flex justify-between items-center py-4 px-8 bg-white shadow sticky top-0 z-50">
-	<div class="text-xl font-bold">AS DATABLE LTD</div>
+<header class="flex justify-between items-center py-4 px-8 section shadow sticky top-0 z-50">
+	<div class="text-xl font-bold heading">AS DATABLE LTD</div>
 	<nav class="flex space-x-6">
-		<a class="hover:text-blue-600" href="#services">Services</a>
-		<a class="hover:text-blue-600" href="#approach">Approach</a>
-		<a class="hover:text-blue-600" href="#projects">Projects</a>
-		<a class="hover:text-blue-600" href="#contact">Contact</a>
+		<a class="text-body hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#services">Services</a>
+		<a class="text-body hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#approach">Approach</a>
+		<a class="text-body hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#projects">Projects</a>
+		<a class="text-body hover:text-blue-600 dark:hover:text-blue-400 transition-colors" href="#contact">Contact</a>
 	</nav>
 </header>

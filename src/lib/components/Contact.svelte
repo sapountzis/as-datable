@@ -62,29 +62,32 @@
 	}
 </script>
 
-<section id="contact" class="py-16 px-6 text-center bg-gray-100">
-	<h2 class="text-2xl font-bold mb-4">Get in Touch</h2>
-	<p class="text-gray-700 max-w-xl mx-auto mb-10">
-		Ready to harness the power of AI and ML? Let’s discuss your vision
+<section id="contact" class="py-16 px-6 text-center section-alt">
+	<h2 class="text-2xl font-bold mb-4 heading">Get in Touch</h2>
+	<p class="text-body max-w-xl mx-auto mb-10">
+		Ready to harness the power of AI and ML? Let's discuss your vision
 		and how AS DATABLE LTD can help make it a reality.
 	</p>
 	<form on:submit|preventDefault={submitForm} class="max-w-md mx-auto flex flex-col space-y-4">
 		<input
-			class="border border-gray-300 p-3 rounded"
+			class="border border-gray-300 dark:border-gray-600 p-3 rounded bg-white dark:bg-gray-700 
+			       text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
 			type="text"
 			placeholder="Name"
 			bind:value={name}
 			required
 		/>
 		<input
-			class="border border-gray-300 p-3 rounded"
+			class="border border-gray-300 dark:border-gray-600 p-3 rounded bg-white dark:bg-gray-700 
+			       text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
 			type="email"
 			placeholder="Email"
 			bind:value={email}
 			required
 		/>
 		<textarea
-			class="border border-gray-300 p-3 rounded"
+			class="border border-gray-300 dark:border-gray-600 p-3 rounded bg-white dark:bg-gray-700 
+			       text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
 			placeholder="Message"
 			bind:value={message}
 			rows="5"
@@ -92,16 +95,16 @@
 		</textarea>
 
 		<!-- Explicit Turnstile Widget -->
-		<div id="turnstile-widget"></div>
+		<div id="turnstile-widget" class="mx-auto"></div>
 
 		<button
 			type="submit"
-			class="bg-blue-600 text-white py-3 rounded font-bold hover:bg-blue-700 transition"
+			class="btn-primary"
 			disabled={isSubmitting}>
 			{isSubmitting ? 'Sending...' : 'Submit'}
 		</button>
 		{#if responseMessage}
-			<p class="text-center text-sm text-gray-600 mt-4">{responseMessage}</p>
+			<p class="text-center text-sm subheading mt-4">{responseMessage}</p>
 		{/if}
 	</form>
 </section>
