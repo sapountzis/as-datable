@@ -1,15 +1,44 @@
-<section class="flex-grow flex items-center justify-center section-alt p-6 text-center">
-	<div class="max-w-3xl">
-		<h1 class="text-4xl font-extrabold heading mb-4">
-			Empowering Businesses with Cutting-Edge AI & ML Solutions
-		</h1>
-		<p class="text-lg subheading mb-8 leading-relaxed">
-			AS DATABLE LTD delivers advanced AI-driven services, from NLP and LLM integration to data analytics
-			and anomaly detection, helping enterprises unlock new value and innovation.
-		</p>
-		<a href="#contact"
-			 class="btn-primary">
-			Schedule a Consultation
-		</a>
+<script>
+	import { onMount } from 'svelte';
+
+	let visible = false;
+	onMount(() => {
+		visible = true;
+	});
+</script>
+
+<section class="min-h-[90vh] flex items-center justify-center section-alt relative overflow-hidden">
+	<div class="absolute inset-0 bg-grid dark:bg-grid-dark opacity-30"></div>
+	
+	<div class="max-w-4xl px-6 py-20 text-center relative">
+		<div class="space-y-6" class:animate-slide-up={visible}>
+			<h1 class="text-5xl md:text-6xl font-bold heading leading-tight">
+				Empowering Businesses with
+				<span class="text-gradient">Cutting-Edge AI</span>
+				& ML Solutions
+			</h1>
+			
+			<p class="text-xl subheading max-w-2xl mx-auto">
+				AS DATABLE delivers advanced AI-driven services, from NLP and LLM integration 
+				to data analytics and anomaly detection, helping enterprises unlock new value 
+				and innovation.
+			</p>
+			
+			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+				<a href="#contact" class="btn-primary group">
+					Schedule a Consultation
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+					</svg>
+				</a>
+				<a href="#services" class="btn-primary bg-white/10 hover:bg-white/20 text-gray-800 dark:text-white">
+					Explore Services
+				</a>
+			</div>
+		</div>
+
+		<!-- Decorative Elements -->
+		<div class="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+		<div class="absolute top-1/2 right-0 -translate-y-1/2 w-64 h-64 bg-secondary-500/10 rounded-full blur-3xl"></div>
 	</div>
 </section>
