@@ -8,60 +8,58 @@
 	let turnstileToken = '';
 	let isSubmitting = false;
 	let visible = false;
-
 	let widgetId = null;
+	let container = null;
 
-	onMount(() => {
-		visible = true;
-		const container = document.getElementById('turnstile-widget');
-		if (container) {
-			if (window.turnstile) {
-				widgetId = window.turnstile.render(container, {
-					sitekey: '0x4AAAAAAA2KSyZlk7120yhk',
-					callback: (token) => {
-						turnstileToken = token;
-					},
-					'error-callback': () => {
-						console.error('Turnstile failed to generate a token.');
-					},
-					'expired-callback': () => {
-						console.warn('Turnstile token expired. Resetting widget.');
-						turnstileToken = '';
-						if (window.turnstile && widgetId) {
-							window.turnstile.reset(widgetId);
-						}
-					},
-					theme: 'light',
-				});
-			} else {
-				console.error('Turnstile is not loaded or widgetId is invalid.');
-			}
+
+	$: if (container) loadTurnstile();
+
+	function loadTurnstile() {
+		if (!container || widgetId !== null) return; // Prevent multiple initializations
+
+		if (!window.turnstile) {
+			const script = document.createElement('script');
+			script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+			script.async = true;
+			script.defer = true;
+			script.onload = initTurnstile;
+			document.head.appendChild(script);
+		} else {
+			initTurnstile();
 		}
-	});
+	}
+
+	function initTurnstile() {
+		if (!container || widgetId !== null) return; // Ensure container is set and prevent double rendering
+
+		widgetId = window.turnstile.render(container, {
+			sitekey: '', // Add your site key
+			callback: (token) => (turnstileToken = token),
+			'error-callback': () => console.error('Turnstile error'),
+			'expired-callback': () => {
+				turnstileToken = '';
+				window.turnstile?.reset(widgetId);
+			},
+			theme: 'light'
+		});
+	}
 
 	async function submitForm() {
+		if (!turnstileToken) return (responseMessage = 'Please complete Turnstile verification.');
 		isSubmitting = true;
 		try {
-			if (!turnstileToken) {
-				throw new Error(
-					'Please complete the Turnstile verification before submitting.'
-				);
-			}
-
-			const response = await fetch('https://email-worker.datable-as.workers.dev/', {
+			const res = await fetch('https://email-worker.datable-as.workers.dev/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ name, email, message, turnstileToken }),
 			});
 
-			const data = await response.json();
-			if (response.ok) {
-				responseMessage = 'Your message has been sent successfully!';
-				name = '';
-				email = '';
-				message = '';
-				if (window.turnstile && widgetId) {
-					window.turnstile.reset(widgetId);
+			const data = await res.json();
+			if (res.ok) {
+				responseMessage = res.ok ? 'Your message has been sent successfully!' : `Error: ${data.error}`;
+				if (res.ok) {
+					name = email = message = '';
+					window.turnstile?.reset(widgetId);
 				}
 			} else {
 				responseMessage = `Error: ${data.error}`;
