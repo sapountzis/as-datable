@@ -22,14 +22,6 @@
 
 /* Custom Components */
 @layer components {
-  .section-fade-in {
-    @apply opacity-0 transition-all duration-500 ease-out;
-  }
-  
-  .section-fade-in.visible {
-    @apply opacity-100 translate-y-0;
-  }
-
   .btn-primary {
     @apply inline-flex items-center gap-2 bg-primary-600 text-white px-6 py-3 
            rounded-lg font-semibold relative overflow-hidden

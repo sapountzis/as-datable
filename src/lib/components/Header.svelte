@@ -66,9 +66,9 @@
 					<a 
 						class="text-body hover:text-primary-500 dark:hover:text-primary-400 
 							   transition-colors duration-300 font-medium" 
-						href="#projects"
+						href="#solutions"
 					>
-						Projects
+						Solutions
 					</a>
 					<a 
 						class="btn-primary py-2" 
@@ -122,10 +122,10 @@
 				<a 
 					class="text-body hover:text-primary-500 dark:hover:text-primary-400 
 						   transition-colors duration-300 font-medium" 
-					href="#projects"
+					href="#solutions"
 					on:click={closeMobileMenu}
 				>
-					Projects
+					Solutions
 				</a>
 				<a 
 					class="btn-primary" 

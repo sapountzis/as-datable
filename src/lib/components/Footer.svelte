@@ -17,7 +17,7 @@
 				<nav class="flex flex-col space-y-2">
 					<a href="#services" class="text-body hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Services</a>
 					<a href="#approach" class="text-body hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Approach</a>
-					<a href="#projects" class="text-body hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Projects</a>
+					<a href="#solutions" class="text-body hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Solutions</a>
 					<a href="#contact" class="text-body hover:text-primary-500 dark:hover:text-primary-400 transition-colors">Contact</a>
 				</nav>
 			</div>

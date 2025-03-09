@@ -3,7 +3,9 @@
   import Hero from '$lib/components/Hero.svelte';
   import Services from '$lib/components/Services.svelte';
   import Approach from '$lib/components/Approach.svelte';
-  import Projects from '$lib/components/Projects.svelte';
+  import Solutions from '$lib/components/Solutions.svelte';
+  import CTA from '$lib/components/CTA.svelte';
+  import Companies from '$lib/components/Companies.svelte';
   import Contact from '$lib/components/Contact.svelte';
   import Footer from '$lib/components/Footer.svelte';
 </script>
@@ -13,7 +15,9 @@
   <Hero />
   <Services />
   <Approach />
-  <Projects />
+  <Solutions />
+  <CTA />
+  <Companies />
   <Contact />
   <Footer />
 </div>

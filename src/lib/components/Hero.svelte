@@ -13,15 +13,14 @@
 	<div class="max-w-4xl px-6 py-20 text-center relative">
 		<div class="space-y-6" class:animate-slide-up={visible}>
 			<h1 class="text-5xl md:text-6xl font-bold heading leading-tight">
-				Empowering Businesses with
-				<span class="text-gradient">Cutting-Edge AI</span>
-				& ML Solutions
+				Transform Your Business with
+				<span class="text-gradient">Enterprise AI</span>
+				Solutions
 			</h1>
 			
 			<p class="text-xl subheading max-w-2xl mx-auto">
-				AS DATABLE delivers advanced AI-driven services, from NLP and LLM integration 
-				to data analytics and anomaly detection, helping enterprises unlock new value 
-				and innovation.
+				AS DATABLE delivers enterprise-grade AI solutions that drive real business outcomes. 
+				From intelligent automation to advanced analytics, we help organizations unlock their full potential.
 			</p>
 			
 			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
