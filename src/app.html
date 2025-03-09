@@ -41,17 +41,31 @@
 		<link rel="preload" href="%sveltekit.assets%/as-logo.webp" as="image" />
 
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-0G1JNTY6WR"></script>
 		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+			// 1. Define dataLayer and gtag function (only define these ONCE)
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
 
-		gtag('config', 'G-0G1JNTY6WR');
+			// 2. Set default consent values BEFORE loading the script
+			gtag('consent', 'default', {
+				'analytics_storage': 'denied',
+				'ad_storage': 'denied',
+				'ad_user_data': 'denied',
+				'ad_personalization': 'denied'
+			});
+
+			// 3. Other gtag settings
+			gtag('set', 'url_passthrough', true);
 		</script>
 
-		<!-- CookieBot -->
-		<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="63b7c797-d965-44ad-b90d-08ba8ecf9f7d" type="text/javascript" async></script>
+		<!-- 4. THEN load the gtag.js script -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-0G1JNTY6WR"></script>
+
+		<!-- 5. AFTER the script loads, initialize and configure -->
+		<script>
+			gtag('js', new Date());
+			gtag('config', 'G-0G1JNTY6WR');
+		</script>
 
 		%sveltekit.head%
 	</head>

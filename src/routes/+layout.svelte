@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount } from 'svelte';
+    import CookieConsent from '$lib/components/CookieConsent.svelte';
 	let { children } = $props();
 	
 	let darkMode = $state(false);
@@ -32,6 +33,8 @@
 		}
 	}
 </script>
+
+<CookieConsent />
 
 <!-- Dark Mode Toggle Button -->
 <button
