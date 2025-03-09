@@ -43,22 +43,30 @@
 		<!-- <link rel="preload" href="%sveltekit.assets%/as-logo.webp" as="image" /> -->
 
 		<!-- Google tag (gtag.js) -->
-		<script defer src="https://www.googletagmanager.com/gtag/js?id=G-0G1JNTY6WR"></script>
 		<script>
+			// 1. Define dataLayer and gtag function (only define these ONCE)
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
+
+			// 2. Set default consent values BEFORE loading the script
 			gtag('consent', 'default', {
-			  'analytics_storage': 'denied',
-			  'ad_storage': 'denied',
-			  'ad_user_data': 'denied',
-			  'ad_personalization': 'denied'
+				'analytics_storage': 'denied',
+				'ad_storage': 'denied',
+				'ad_user_data': 'denied',
+				'ad_personalization': 'denied'
 			});
 
-			window.addEventListener('load', function() {
-			  gtag('js', new Date());
-			  gtag('config', 'G-0G1JNTY6WR', { 'send_page_view': false });
-			  gtag('event', 'page_view');
-			});
+			// 3. Other gtag settings
+			gtag('set', 'url_passthrough', true);
+		</script>
+
+		<!-- 4. THEN load the gtag.js script -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-0G1JNTY6WR"></script>
+
+		<!-- 5. AFTER the script loads, initialize and configure -->
+		<script>
+			gtag('js', new Date());
+			gtag('config', 'G-0G1JNTY6WR');
 		</script>
 
 		%sveltekit.head%
