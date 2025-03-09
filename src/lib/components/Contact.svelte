@@ -33,7 +33,7 @@
 		if (!container || widgetId !== null) return; // Ensure container is set and prevent double rendering
 
 		widgetId = window.turnstile.render(container, {
-			sitekey: '', // Add your site key
+			sitekey: '0x4AAAAAAA2KSyZlk7120yhk',
 			callback: (token) => (turnstileToken = token),
 			'error-callback': () => console.error('Turnstile error'),
 			'expired-callback': () => {
@@ -129,7 +129,7 @@
 						></textarea>
 					</div>
 
-					<div id="turnstile-widget" class="mx-auto"></div>
+					<div bind:this={container} id="turnstile-widget" class="mx-auto"></div>
 
 					<button
 						type="submit"
