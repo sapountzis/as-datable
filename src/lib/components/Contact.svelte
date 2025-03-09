@@ -15,22 +15,27 @@
 		visible = true;
 		const container = document.getElementById('turnstile-widget');
 		if (container) {
-			widgetId = window.turnstile.render(container, {
-				sitekey: '0x4AAAAAAA2KSyZlk7120yhk',
-				callback: (token) => {
-					turnstileToken = token;
-					console.log('Turnstile token generated:', token);
-				},
-				'error-callback': () => {
-					console.error('Turnstile failed to generate a token.');
-				},
-				'expired-callback': () => {
-					console.warn('Turnstile token expired. Resetting widget.');
-					turnstileToken = '';
-					window.turnstile.reset(widgetId);
-				},
-				theme: 'light',
-			});
+			if (window.turnstile) {
+				widgetId = window.turnstile.render(container, {
+					sitekey: '0x4AAAAAAA2KSyZlk7120yhk',
+					callback: (token) => {
+						turnstileToken = token;
+					},
+					'error-callback': () => {
+						console.error('Turnstile failed to generate a token.');
+					},
+					'expired-callback': () => {
+						console.warn('Turnstile token expired. Resetting widget.');
+						turnstileToken = '';
+						if (window.turnstile && widgetId) {
+							window.turnstile.reset(widgetId);
+						}
+					},
+					theme: 'light',
+				});
+			} else {
+				console.error('Turnstile is not loaded or widgetId is invalid.');
+			}
 		}
 	});
 
@@ -55,7 +60,9 @@
 				name = '';
 				email = '';
 				message = '';
-				window.turnstile.reset(widgetId);
+				if (window.turnstile && widgetId) {
+					window.turnstile.reset(widgetId);
+				}
 			} else {
 				responseMessage = `Error: ${data.error}`;
 			}
