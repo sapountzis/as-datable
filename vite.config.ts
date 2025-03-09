@@ -6,10 +6,24 @@ export default defineConfig({
 	build: {
 		rollupOptions: {
 			output: {
-				manualChunks: undefined, // Adjust chunking if needed
+				manualChunks: (id) => {
+					// Separate vendor code from application code
+					if (id.includes('node_modules')) {
+					  return 'vendor';
+					}
+				}
 			}
 		},
 		target: 'es2017', // Modern browsers
+		minify: 'terser',
+		terserOptions: {
+		  compress: {
+			drop_console: true
+		  },
+		  format: {
+			comments: false
+		  }
+		}
 	},
 	server: {
 		headers: {

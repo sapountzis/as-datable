@@ -58,11 +58,13 @@
                         <img
                             src={logo} 
                             alt={`${name} logo`}
+                            loading="lazy"
                             class="max-h-full w-auto object-contain block dark:hidden"
                         />
                         <img
                             src={logoDark} 
                             alt={`${name} logo`}
+                            loading="lazy"
                             class="max-h-full w-auto object-contain hidden dark:block"
                         />
                     </a>
