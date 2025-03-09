@@ -18,16 +18,18 @@ export default defineConfig({
 		minify: 'terser',
 		terserOptions: {
 		  compress: {
-			drop_console: true
+			drop_console: true,
+			drop_debugger: true
 		  },
 		  format: {
 			comments: false
 		  }
-		}
+		},
+		sourcemap: false
 	},
 	server: {
 		headers: {
-			'Cache-Control': 'public, max-age=31536000, immutable', // Dev server headers (for testing)
+			'Cache-Control': 'public, max-age=31536000, immutable',
 		}
 	}
 });
