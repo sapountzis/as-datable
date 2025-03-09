@@ -45,7 +45,11 @@
                 <h2 class="text-4xl font-bold mb-4 heading">Trusted By</h2>
                 <p class="text-xl subheading">Delivering AI Excellence Across Industries</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-64 items-center justify-items-center mx-auto max-w-[1080px]"
+            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-4 
+                    gap-6 xl:gap-64 
+                    items-center justify-items-center 
+                    mx-auto
+                    max-w-[600px] xl:max-w-[1080px]"
                 in:fly={{ y: 20, duration: 500, delay: 100 }}>
            {#each companies as { name, logo, logoDark, url }}
                 <div class="card group relative border border-gray-200 dark:border-gray-700 flex items-center justify-center w-64 h-32 py-4 px-4">
