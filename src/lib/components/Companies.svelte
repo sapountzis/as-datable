@@ -4,7 +4,7 @@
   
     const companies = [
       { name: 'Einbliq.io', logo: '/logos/einbliq.webp', logoDark: '/logos/einbliq-dark.webp', url: 'https://einbliq.io' },
-      { name: 'Yumio', logo: '/logos/yumio.webp', logoDark: '/logos/yumio.webp', url: 'https://yumio.ai' },
+      { name: 'Yumio', logo: '/logos/yumio.webp', logoDark: '/logos/yumio.webp', url: 'https://youmio.ai' },
       { name: 'AIREV', logo: '/logos/airev.webp', logoDark: '/logos/airev.webp', url: 'https://airev.us' },
       { name: 'Mentalyc', logo: '/logos/mentalyc.webp', logoDark: '/logos/mentalyc.webp', url: 'https://mentalyc.com' },
       { name: 'European Commission', logo: '/logos/ec.webp', logoDark: '/logos/ec.webp', url: 'https://commission.europa.eu' }
