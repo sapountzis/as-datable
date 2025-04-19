@@ -56,6 +56,14 @@
 					>
 						Services
 					</a>
+					<a
+						class="text-body hover:text-primary-500 dark:hover:text-primary-400
+				 transition-colors duration-300 font-medium"
+						href="https://www.notion.so/LLM-Stack-Diagnostic-Sprint-1be4e72a76e7808ca8ced73e87c0b211"
+						target="_blank" rel="noopener noreferrer"
+					>
+						Sprint&nbsp;Details
+					</a>
 					<a 
 						class="text-body hover:text-primary-500 dark:hover:text-primary-400 
 							   transition-colors duration-300 font-medium" 
@@ -110,6 +118,15 @@
 					on:click={closeMobileMenu}
 				>
 					Services
+				</a>
+				<a
+						class="text-body hover:text-primary-500 dark:hover:text-primary-400
+				 transition-colors duration-300 font-medium"
+						href="https://www.notion.so/LLM-Stack-Diagnostic-Sprint-1be4e72a76e7808ca8ced73e87c0b211"
+						target="_blank" rel="noopener noreferrer"
+						on:click={closeMobileMenu}
+				>
+						Sprint Details
 				</a>
 				<a 
 					class="text-body hover:text-primary-500 dark:hover:text-primary-400 
