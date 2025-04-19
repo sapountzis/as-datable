@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://datable.as/sitemap.xml
+Sitemap: https://asdatable.com/sitemap.xml
+
+# Preferred canonical host
+Host: asdatable.com

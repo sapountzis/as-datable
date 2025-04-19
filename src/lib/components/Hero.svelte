@@ -12,17 +12,14 @@
 	
 	<div class="max-w-4xl px-6 py-20 text-center relative">
 		<div class="space-y-6" class:animate-slide-up={visible}>
-			<h1 class="text-5xl md:text-6xl font-bold heading leading-tight">
-				Transform Your Business with
-				<span class="text-gradient">Enterprise AI</span>
-				Solutions
-			</h1>
-			
-			<p class="text-xl subheading max-w-2xl mx-auto">
-				AS DATABLE delivers enterprise-grade AI solutions that drive real business outcomes. 
-				From intelligent automation to advanced analytics, we help organizations unlock their full potential.
-			</p>
-			
+				<h1 class="text-5xl md:text-6xl font-bold heading leading-tight">
+						<span class="text-gradient">Get your AI&nbsp;/ LLM stack<br />production‑ready in 10 days</span>
+				</h1>
+
+				<p class="text-xl subheading max-w-2xl mx-auto">
+						I stabilise, scale and harden ML & LLM systems for teams like Mentalyc, Einbliq,
+						AIREV and the EU Commission &mdash; fully remote.
+				</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
 				<a href="#contact" class="btn-primary group">
 					Schedule a Consultation

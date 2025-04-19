@@ -13,11 +13,11 @@
 <div class="flex flex-col min-h-screen">
   <Header />
   <Hero />
+  <Companies />
   <Services />
   <Approach />
   <Solutions />
   <CTA />
-  <Companies />
   <Contact />
   <Footer />
 </div>
