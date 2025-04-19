@@ -1,38 +1,82 @@
-# sv
+# AS DATABLE • Marketing Site (SvelteKit + Tailwind 3)
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+> The public website for **AS DATABLE** – I help teams ship **stable, scalable LLM & ML systems** in 10 days.  
+> Live site ▶︎ https://asdatable.com
 
-## Creating a project
+---
 
-If you're seeing this, you've probably already done this step. Congrats!
+## ✨ Tech stack
 
-```bash
-# create a new project in the current directory
-npx sv create
+| Layer       | Tooling                                                              |
+|-------------|---------------------------------------------------------------------|
+| Front‑end   | **SvelteKit 5** with runes + TypeScript                              |
+| Styling     | **Tailwind 3** (custom glass & grid utilities)                       |
+| Hosting     | **Cloudflare Pages** + edge caching (static/_headers)                |
+| Forms       | Replaced by Calendly; legacy Turnstile form removed                  |
+| Animations  | Svelte `transition` + custom keyframes                               |
+| Analytics   | Google Analytics 4 (consent‑gated via Cookie Consent)                |
 
-# create a new project in my-app
-npx sv create my-app
-```
+---
 
-## Developing
+## 🚀 Local development
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+    git clone https://github.com/<your‑org>/as‑datable‑website.git
+    cd as‑datable‑website
+    pnpm install          # or npm / yarn
+    pnpm dev              # hot‑reloads at http://localhost:5173
 
-```bash
-npm run dev
+### Production build
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+    pnpm build            # outputs to .svelte-kit/
 
-## Building
+Preview locally:
 
-To create a production version of your app:
+    pnpm preview
 
-```bash
-npm run build
-```
+---
 
-You can preview the production build with `npm run preview`.
+## 🛫 Deploying to Cloudflare Pages
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+1. Create a new Pages project → “Import from GitHub”.
+2. Build command: `pnpm build`
+3. Output directory: `.svelte-kit/cloudflare`
+4. Environment variables (if you re‑enable Turnstile or other secrets):
+
+       TURNSTILE_SITEKEY = xxx
+       GA_MEASUREMENT_ID = G‑XXXX
+
+5. Set production branch to `main` → every push auto‑deploys.
+
+---
+
+## 🗺️ Project structure
+
+    src/
+    ├─ lib/components/   # Re‑usable, animated Svelte components
+    ├─ routes/           # +layout.svelte & +page.svelte = page composition
+    ├─ app.css           # Tailwind layers + custom utilities
+    static/              # Assets, sitemap, headers
+    tailwind.config.ts   # Colour palette & glass utilities
+
+---
+
+## 🪄 Contributing
+
+Open to typo fixes, accessibility improvements, and performance PRs.  
+For larger changes, please open an issue first.
+
+    pnpm lint        # Prettier + ESlint
+    pnpm check       # svelte‑check type safety
+
+---
+
+## 📄 License
+
+MIT – Free to fork, adapt, and learn from.  
+If you reuse the copy or design, please keep a credit link.
+
+---
+
+### 💬 Need an LLM stack audited?
+
+Book a 15‑minute diagnostic call 👉 https://calendly.com/datable-as/llm-stack-sprint-intro-call
