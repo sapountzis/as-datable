@@ -1,6 +1,6 @@
 # asdatable.com — Fractional AI Engineer (Static Site)
 
-> Production‑grade AI for startups and mid‑sized companies.  
+> Production-grade AI for startups and mid-sized companies.  
 > Live: https://asdatable.com
 
 ---
@@ -9,11 +9,11 @@
 
 | Layer       | Tooling                                             |
 |-------------|-----------------------------------------------------|
-| Front‑end   | Static HTML + Tailwind CDN                          |
+| Front-end   | Static HTML + Tailwind CDN                          |
 | Animations  | CSS keyframes, IntersectionObserver, simple tilt    |
-| Forms       | FormSubmit (serverless email) + thank‑you page      |
-| Analytics   | Google Analytics 4 (consent‑gated)                  |
-| Consent     | vanilla‑cookieconsent                               |
+| Forms       | FormSubmit (serverless email) + thank-you page      |
+| Analytics   | Google Analytics 4 (consent-gated)                  |
+| Consent     | vanilla-cookieconsent                               |
 | Hosting     | Cloudflare Pages + `_headers`                       |
 
 ---
@@ -40,7 +40,7 @@ Open `index.html` directly in a browser, or serve the folder:
 
 ## 📁 Project structure
 
-    index.html        # Single‑page site
+    index.html        # Single-page site
     thanks.html       # Form success page
     checklist.html    # Lead magnet
     _headers          # Cache rules
@@ -66,4 +66,4 @@ MIT. If you reuse significant portions of the copy/design, consider a credit lin
 
 ### 💬 Work with Andreas
 
-Book a 15‑minute intro → https://calendly.com/datable-as/llm-stack-sprint-intro-call
+Book a 15-minute intro → https://calendly.com/datable-as/llm-stack-sprint-intro-call
