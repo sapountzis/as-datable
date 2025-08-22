@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Infra Readiness Checklist — asdatable.com</title>
+    <link rel="icon" href="/static/favicon.png" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>body{font-family:'Plus Jakarta Sans',ui-sans-serif,system-ui,sans-serif;background:linear-gradient(180deg,#0b0e13,#0f141a 60%);color:#e2e8f0}.container{max-width:900px;margin:0 auto;padding:2.5rem 1.25rem}.card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1rem 1.25rem}</style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <h1 class="text-3xl text-white">AI Infra Readiness Checklist</h1>
+          <p class="mt-2 text-slate-300">A practical diagnostic to get flaky LLM systems stable, observable, and cost‑aware. Work top‑to‑bottom; each item has a result signal.</p>
+          <p class="mt-1 text-slate-400 text-sm">Progress: <span id="score">0</span> completed</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="printBtn" class="btn btn-ghost">Print</button>
+          <button id="resetBtn" class="btn btn-ghost">Reset</button>
+        </div>
+      </div>
+
+      <nav class="mt-4 text-sm text-slate-400">
+        <a href="#use">How to use</a> · <a href="#data">Data</a> · <a href="#evals">Evals</a> · <a href="#serving">Serving</a> · <a href="#obs">Observability & Cost</a> · <a href="#security">Security</a> · <a href="#ops">Ops</a>
+      </nav>
+
+      <section id="use" class="card p-6 mt-6">
+        <h2 class="text-xl text-white">How to use this</h2>
+        <ul class="mt-2 space-y-2 text-slate-300">
+          <li>Do the items in order. You can stabilize most systems in 1–2 weeks without rewriting them.</li>
+          <li>Each item has a concrete <span class="underline">signal</span> so you know when it’s done.</li>
+          <li>If something’s hard to measure, instrument it first—then decide any refactors.</li>
+        </ul>
+      </section>
+
+      <div class="mt-6 grid gap-4">
+        <section id="data" class="card p-6">
+          <h2 class="text-xl text-white">1) Data & Retrieval</h2>
+          <ul class="mt-3 space-y-2 text-slate-300">
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>One source of truth.</strong> Name the canonical store(s) and owners for your content; list derived mirrors. <span class="text-slate-400 text-xs">Signal: a 1‑page data map exists and is linked in README.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Chunking that matches questions.</strong> Use semantic or header‑aware chunking; overlap 10–20%. <span class="text-slate-400 text-xs">Signal: retrieval <em>answers</em> improve when overlap increases; precision@5 ≥ 0.6 on your golden set.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Embedding lifecycle.</strong> Record model+dim in metadata; schedule re‑embedding on schema/model change. <span class="text-slate-400 text-xs">Signal: a one‑click job (or Makefile task) re‑embeds and re‑indexes without manual edits.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Negative sampling.</strong> Add near‑duplicates/hard negatives to improve scorer. <span class="text-slate-400 text-xs">Signal: MRR improves ≥ 10% vs baseline within 24h.</span></span></label></li>
+            <li class="text-slate-400 text-xs">Tip: Keep doc IDs stable across re‑ingests; treat deletes explicitly to avoid ghost results.</li>
+          </ul>
+        </section>
+
+        <section id="evals" class="card p-6">
+          <h2 class="text-xl text-white">2) Evaluation Harness (make quality measurable)</h2>
+          <ul class="mt-3 space-y-2 text-slate-300">
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Golden set (50–200 items).</strong> Curate queries, expected answers, and references; include tricky counter‑examples. <span class="text-slate-400 text-xs">Signal: repo contains <code>evals/</code> with JSON/CSV and a README on scoring.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Automatic scoring.</strong> Use faithfulness/answer similarity + retrieval precision. <span class="text-slate-400 text-xs">Signal: one command prints a scorecard; CI fails if score drops ≥ 2 pts.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Prompt/config versioning.</strong> Track prompts, tools, and provider settings in Git. <span class="text-slate-400 text-xs">Signal: PRs show prompt diffs; releases reference a prompt hash.</span></span></label></li>
+            <li class="text-slate-400 text-xs">Tip: Add 10% of tickets as evaluation maintenance to avoid silent drift.</li>
+          </ul>
+        </section>
+
+        <section id="serving" class="card p-6">
+          <h2 class="text-xl text-white">3) Serving & Reliability</h2>
+          <ul class="mt-3 space-y-2 text-slate-300">
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Budgets & timeouts.</strong> Set p95 latency budgets per step; enforce timeouts/retries with jitter. <span class="text-slate-400 text-xs">Signal: p95 ≤ 1.2× budget for last 3 days.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Deterministic fallbacks.</strong> Define provider fallback order and circuit breakers. <span class="text-slate-400 text-xs">Signal: failovers are visible in logs with a single trace ID.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Caching & batching.</strong> Cache embedding/LLM calls where safe; batch small vectors. <span class="text-slate-400 text-xs">Signal: tokens/request reduced ≥ 25% without quality loss.</span></span></label></li>
+            <li class="text-slate-400 text-xs">Tip: Treat tool calls like untrusted dependencies—timeouts, retries, and guardrails for each.</li>
+          </ul>
+        </section>
+
+        <section id="obs" class="card p-6">
+          <h2 class="text-xl text-white">4) Observability & Cost</h2>
+          <ul class="mt-3 space-y-2 text-slate-300">
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Trace every request.</strong> Add a trace ID spanning retrieval, LLM steps, and tools. <span class="text-slate-400 text-xs">Signal: any error links to a full trace in one click.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Dashboards that matter.</strong> Tokens, cost per action, latency, failure rate, cache hit‑rate. <span class="text-slate-400 text-xs">Signal: a Grafana/Datadog board exists and is used in weekly review.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Budgets & alerts.</strong> Daily budget cap and anomaly alerts (e.g., 3× token spike). <span class="text-slate-400 text-xs">Signal: alert fires in staging with a synthetic test.</span></span></label></li>
+          </ul>
+        </section>
+
+        <section id="security" class="card p-6">
+          <h2 class="text-xl text-white">5) Security, Privacy, Governance</h2>
+          <ul class="mt-3 space-y-2 text-slate-300">
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>PII handling.</strong> Redact logs; encrypt at rest; restrict access by role. <span class="text-slate-400 text-xs">Signal: sampling logs contains 0 PII; access is auditable.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Secrets & keys.</strong> Centralized secrets, rotation policy, provider quotas. <span class="text-slate-400 text-xs">Signal: runbook exists for key leak response in < 30 min.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Vendor posture.</strong> List approved model providers and data boundaries. <span class="text-slate-400 text-xs">Signal: a doc answers “where can data go?” in one paragraph.</span></span></label></li>
+          </ul>
+        </section>
+
+        <section id="ops" class="card p-6">
+          <h2 class="text-xl text-white">6) Operational Cadence</h2>
+          <ul class="mt-3 space-y-2 text-slate-300">
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Weekly quality review.</strong> Look at scorecard deltas, top failures, and cost trends. <span class="text-slate-400 text-xs">Signal: action items feed directly into backlog.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Release gates.</strong> Canary to 10% traffic; rollback in one command. <span class="text-slate-400 text-xs">Signal: last release shows canary metrics in PR.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Runbooks.</strong> Playbooks for common failures (provider outage, vector DB lag, cache miss storm). <span class="text-slate-400 text-xs">Signal: new engineer can resolve an incident within SLA.</span></span></label></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="mt-8 flex items-center gap-3">
+        <a href="/" class="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 font-semibold text-white">Back to home</a>
+        <a href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener" class="btn btn-ghost">Discuss a diagnostic sprint</a>
+      </div>
+    </main>
+    <script>
+      (function(){
+        const boxes = document.querySelectorAll('.rd');
+        const scoreEl = document.getElementById('score');
+        function update(){
+          const done = Array.from(boxes).filter(b=>b.checked).length;
+          scoreEl.textContent = done + ' / ' + boxes.length;
+        }
+        boxes.forEach(b=>b.addEventListener('change', update));
+        update();
+        document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+        document.getElementById('resetBtn').addEventListener('click', ()=>{ boxes.forEach(b=>b.checked=false); update(); });
+      })();
+    </script>
+  </body>
+ </html>
+

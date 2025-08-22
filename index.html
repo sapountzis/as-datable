@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Andreas Sapountzis — Fractional AI Engineer</title>
+    <meta name="description" content="Fractional AI Engineer partnering long‑term with startups and mid‑size teams to build dependable LLM products, retrieval, and model serving." />
+    <link rel="canonical" href="https://asdatable.com/" />
+    <link rel="icon" href="/static/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://asdatable.com/" />
+    <meta property="og:title" content="Andreas Sapountzis — Fractional AI Engineer" />
+    <meta property="og:description" content="Build dependable AI, not demos. Long‑term partnerships for production LLM systems." />
+    <meta property="og:image" content="/static/as-logo.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Andreas Sapountzis — Fractional AI Engineer" />
+    <meta name="twitter:description" content="Build dependable AI, not demos. Long‑term partnerships for production LLM systems." />
+    <meta name="twitter:image" content="/static/as-logo.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <style>
+      .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1.25rem; padding-right: 1.25rem; }
+      .bg-aurora { background: radial-gradient(900px circle at 10% 10%, rgba(127,150,255,0.10), transparent 40%), radial-gradient(900px circle at 90% 20%, rgba(148,110,255,0.10), transparent 40%), radial-gradient(700px circle at 30% 80%, rgba(74,222,128,0.08), transparent 40%), linear-gradient(180deg, #0b0e13, #0f141a 60%); }
+      .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; }
+      .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; border-radius: 10px; padding: .75rem 1rem; }
+      .btn-primary { background: linear-gradient(135deg, #4f7cff, #976bff); color: white; box-shadow: 0 10px 30px rgba(79,124,255,.3); }
+      .btn-ghost { border: 1px solid rgba(255,255,255,.12); color: #cbd5e1; }
+      .eyebrow { letter-spacing: .18em; text-transform: uppercase; font-size: .75rem; color: #93c5fd; }
+      .mesh { position: absolute; inset: -80px 0 auto 0; height: 420px; pointer-events: none; filter: blur(40px) saturate(1.1); background:
+        radial-gradient(400px 200px at 20% 30%, rgba(127,150,255,.25), transparent 60%),
+        radial-gradient(360px 200px at 80% 10%, rgba(151,107,255,.22), transparent 60%),
+        radial-gradient(300px 160px at 60% 80%, rgba(74,222,128,.18), transparent 60%);
+      }
+      .ring-gradient { background: conic-gradient(from 180deg at 50% 50%, #7aa2ff, #976bff, #7aa2ff); padding: 2px; border-radius: 9999px; display:inline-flex; }
+      .chip { display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem; border-radius:9999px; border:1px solid rgba(255,255,255,.12); color:#cbd5e1; font-size:.75rem; }
+    </style>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('consent','default',{
+        analytics_storage:'denied',
+        ad_storage:'denied',
+        ad_user_data:'denied',
+        ad_personalization:'denied'
+      });
+      gtag('set','url_passthrough',true);
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0G1JNTY6WR"></script>
+    <script>gtag('js',new Date()); gtag('config','G-0G1JNTY6WR');</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.8.6/dist/cookieconsent.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.8.6/dist/cookieconsent.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        if (window && window.initCookieConsent) {
+          var cc = initCookieConsent();
+          cc.run({
+            current_lang: 'en',
+            autoclear_cookies: true,
+            page_scripts: true,
+            gui_options: {
+              consent_modal: { layout: 'cloud inline', position: 'bottom center', transition: 'slide', equal_weight_buttons: true },
+              settings_modal: { layout: 'box', transition: 'slide' }
+            },
+            onAccept: function () {
+              if (cc.allowedCategory('analytics') && typeof window.gtag === 'function') {
+                gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'denied', ad_personalization: 'denied' });
+              }
+            },
+            onChange: function () {
+              if (!cc.allowedCategory('analytics') && typeof window.gtag === 'function') {
+                gtag('consent', 'update', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+              }
+            },
+            languages: {
+              en: {
+                consent_modal: {
+                  title: 'We value your privacy',
+                  description: 'We use cookies to enhance your experience and analyze traffic.',
+                  primary_btn: { text: 'Accept all', role: 'accept_all' },
+                  secondary_btn: { text: 'Manage preferences', role: 'settings' }
+                },
+                settings_modal: {
+                  title: 'Privacy Preferences',
+                  save_settings_btn: 'Save preferences',
+                  accept_all_btn: 'Accept all',
+                  reject_all_btn: 'Reject all',
+                  close_btn_label: 'Close',
+                  blocks: [
+                    { title: 'Essential Cookies', description: 'Required for the website to function.' },
+                    { title: 'Analytics Cookies', description: 'Help us understand usage (anonymized).', toggle: { value: 'analytics', enabled: false, readonly: false } }
+                  ]
+                }
+              }
+            }
+          });
+        }
+      });
+    </script>
+  </head>
+  <body class="bg-aurora text-slate-200">
+    <header class="sticky top-0 z-40 backdrop-blur supports-backdrop-blur:bg-ink-900/60 border-b border-white/10">
+      <nav class="container h-14 flex items-center justify-between">
+        <a href="#home" class="font-display text-lg">AS</a>
+        <ul class="hidden md:flex gap-6 text-sm">
+          <li><a href="#services" class="hover:text-white">Services</a></li>
+          <li><a href="#work" class="hover:text-white">Work</a></li>
+          <li><a href="#about" class="hover:text-white">About</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary text-sm">Book a call</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="container pt-20 pb-16 relative">
+        <div class="mesh" aria-hidden="true"></div>
+        <div class="flex items-center gap-3">
+          <span class="ring-gradient"><img src="/static/as-logo.webp" alt="AS" class="h-9 w-9 rounded-full bg-ink-900"/></span>
+          <div class="text-xs text-slate-400">Andreas Sapountzis · Thessaloniki, Greece</div>
+        </div>
+        <p class="eyebrow mt-5">Fractional AI Engineering</p>
+        <h1 class="font-display text-4xl sm:text-6xl leading-tight text-white max-w-3xl">Build dependable AI, not demos.</h1>
+        <p class="mt-5 max-w-2xl text-slate-300">Long‑term partner for LLM products, retrieval, and model serving. I design for reliability, observability, and cost from day one—so your system keeps its promises at scale.</p>
+        <div class="mt-4 flex gap-2">
+          <span class="chip">Currently booking one retainer slot</span>
+          <span class="chip">Response within 24h</span>
+        </div>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener" class="btn btn-primary">Book a 15‑min intro</a>
+          <a href="mailto:datable.as@gmail.com" class="btn btn-ghost">Email Andreas</a>
+        </div>
+        <div class="mt-10 text-xs text-slate-400">Trusted by
+          <span class="inline-flex items-center gap-5 ml-4 align-middle">
+            <img src="/static/logos/mentalyc.webp" alt="Mentalyc" class="h-5"/>
+            <img src="/static/logos/einbliq.webp" alt="Einbliq" class="h-5"/>
+            <img src="/static/logos/airev.webp" alt="AIREV" class="h-5"/>
+            <img src="/static/logos/ec.webp" alt="European Commission" class="h-5"/>
+          </span>
+        </div>
+      </section>
+
+      <section id="services" class="container py-16">
+        <h2 class="font-display text-3xl text-white">What I do</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">LLM Product Engineering</h3>
+            <p class="mt-2 text-slate-300">Design conversation flows, structured outputs, and evaluation harnesses so assistants behave the same on Tuesday as they did on Monday.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">Retrieval & Data Systems</h3>
+            <p class="mt-2 text-slate-300">Domain‑aware chunking, embeddings and scoring, with datasets you can test and version—not hand‑wave.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">Serving & MLOps</h3>
+            <p class="mt-2 text-slate-300">Fast, predictable inference with CI for prompts/config, observability for tokens/latency/costs, and safe rollbacks.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">Streaming & Detection</h3>
+            <p class="mt-2 text-slate-300">Telemetry and anomaly detection to keep real‑time systems honest—plus explainability where it matters.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="offer" class="container py-16">
+        <div class="grid gap-6 md:grid-cols-2">
+          <article class="card p-6">
+            <h3 class="font-display text-2xl text-white">Fractional AI Engineer</h3>
+            <ul class="mt-3 list-disc pl-5 text-slate-300">
+              <li>6–12+ month engagement embedded with your team</li>
+              <li>Shared roadmap, weekly delivery, code you can maintain</li>
+              <li>Reliability and cost discipline built in from day one</li>
+            </ul>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-display text-2xl text-white">LLM Reliability Sprint</h3>
+            <p class="mt-2 text-slate-300">A focused 5–10 day engagement to stabilize agents, improve retrieval quality, and install an evaluation layer you can trust. Ideal on‑ramp to a retainer.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="why" class="container py-16">
+        <h2 class="font-display text-3xl text-white">Why work with me</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">0→1 to production</h3>
+            <p class="mt-2 text-slate-300">I turn vague ideas into running systems. Clear plans, pragmatic trade‑offs, and weekly delivery you can review.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">Reliability first</h3>
+            <p class="mt-2 text-slate-300">Evaluation harnesses, observability for tokens/latency/costs, and failure‑mode thinking baked in.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">Cross‑domain range</h3>
+            <p class="mt-2 text-slate-300">Mental health, streaming analytics, research, agents. I adapt quickly without reinventing the wheel.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">Partner, not a ticket closer</h3>
+            <p class="mt-2 text-slate-300">I collaborate with founders and teams on roadmap, design, and execution—not just isolated tasks.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="work" class="container py-16">
+        <h2 class="font-display text-3xl text-white">Selected work</h2>
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <article class="card p-6"><h3 class="font-semibold text-white">Einbliq</h3><p class="mt-2 text-slate-300">Environmental impact model across millions of devices; anomaly detection and Grafana observability.</p></article>
+          <article class="card p-6"><h3 class="font-semibold text-white">Mentalyc</h3><p class="mt-2 text-slate-300">Higher‑quality therapist notes via improved LLM operations and data workflows.</p></article>
+          <article class="card p-6"><h3 class="font-semibold text-white">AIREV</h3><p class="mt-2 text-slate-300">Classification engine and GPT‑4 pipelines powering presales research at scale.</p></article>
+        </div>
+      </section>
+
+      <section id="about" class="container py-16">
+        <h2 class="font-display text-3xl text-white">About</h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+          <article class="card p-6 md:col-span-2">
+            <h3 class="font-semibold text-white">Who I am</h3>
+            <p class="mt-2 text-slate-300">I’m Andreas Sapountzis, an AI engineer focused on reliable LLM systems. Over the past years I’ve shipped production software across mental health, streaming analytics, research, and real‑time agents. I value clarity in design, clean code, and the discipline to measure what matters.</p>
+            <div class="mt-3 flex flex-wrap gap-2">
+              <span class="chip">LLM apps & agents</span>
+              <span class="chip">RAG & retrieval</span>
+              <span class="chip">Serving & MLOps</span>
+              <span class="chip">Streaming analytics</span>
+              <span class="chip">Explainability</span>
+            </div>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">Principles</h3>
+            <ul class="mt-2 space-y-2 text-slate-300 text-sm">
+              <li><strong>Reliability over novelty.</strong> Stable beats flashy.</li>
+              <li><strong>Make it observable.</strong> If we can’t see it, we can’t trust it.</li>
+              <li><strong>Small, steady wins.</strong> Weekly, reviewable output.</li>
+              <li><strong>Respect constraints.</strong> Budget, latency, data privacy.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="container py-16">
+        <h2 class="font-display text-3xl text-white">Let’s talk</h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+          <article class="md:col-span-2 card p-6">
+            <form action="https://formsubmit.co/f729dd377240020acc6decd0b05c57c1" method="POST" class="grid gap-3">
+              <input type="hidden" name="_subject" value="New Inquiry — asdatable.com" />
+              <input type="hidden" name="_next" value="https://asdatable.com/thanks.html" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+              <label class="text-sm">Name <input class="mt-1 w-full rounded-md bg-white/5 border border-white/10 px-3 py-2" name="name" required /></label>
+              <label class="text-sm">Email <input class="mt-1 w-full rounded-md bg-white/5 border border-white/10 px-3 py-2" type="email" name="email" required /></label>
+              <label class="text-sm">What are you trying to achieve? <textarea class="mt-1 w-full rounded-md bg-white/5 border border-white/10 px-3 py-2" name="message" rows="4" required></textarea></label>
+              <div class="flex gap-3 pt-1">
+                <button class="btn btn-primary" type="submit">Send inquiry</button>
+                <a class="btn btn-ghost" href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener">Or book a 15‑min intro</a>
+              </div>
+            </form>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-semibold text-white">AI Infra Readiness Checklist</h3>
+            <p class="mt-2 text-slate-300">Get the 1‑page checklist I use to assess readiness for LLM/RAG/agents.</p>
+            <form action="https://formsubmit.co/f729dd377240020acc6decd0b05c57c1" method="POST" class="mt-3 flex gap-2">
+              <input type="hidden" name="_subject" value="Checklist Request — asdatable.com" />
+              <input type="hidden" name="_next" value="https://asdatable.com/thanks.html" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="lead_magnet" value="AI Infra Readiness Checklist" />
+              <input type="hidden" name="_autoresponse" value="Thanks for requesting the AI Infra Readiness Checklist.\n\nAccess it here: https://asdatable.com/checklist.html\n\n— Andreas" />
+              <input required type="email" name="email" placeholder="you@company.com" class="flex-1 rounded-md bg-white/5 border border-white/10 px-3 py-2" />
+              <button class="btn btn-ghost" type="submit">Send</button>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10">
+      <div class="container h-16 flex items-center justify-between text-sm">
+        <p>© <span data-year></span> Andreas Sapountzis</p>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/sapountzis" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
+          <button type="button" class="hover:text-white" onclick="if(window && window.initCookieConsent) initCookieConsent().showPreferences();">Cookie preferences</button>
+        </div>
+      </div>
+    </footer>
+    <script>document.querySelector('[data-year]').textContent = new Date().getFullYear();</script>
+  </body>
+ </html>
+

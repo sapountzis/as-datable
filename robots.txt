@@ -6,3 +6,4 @@ Sitemap: https://asdatable.com/sitemap.xml
 
 # Preferred canonical host
 Host: asdatable.com
+

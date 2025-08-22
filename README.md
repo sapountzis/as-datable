@@ -1,82 +1,69 @@
-# AS DATABLE • Marketing Site (SvelteKit + Tailwind 3)
+# asdatable.com — Fractional AI Engineer (Static Site)
 
-> The public website for **AS DATABLE** – I help teams ship **stable, scalable LLM & ML systems** in 10 days.  
-> Live site ▶︎ https://asdatable.com
-
----
-
-## ✨ Tech stack
-
-| Layer       | Tooling                                                              |
-|-------------|---------------------------------------------------------------------|
-| Front‑end   | **SvelteKit 5** with runes + TypeScript                              |
-| Styling     | **Tailwind 3** (custom glass & grid utilities)                       |
-| Hosting     | **Cloudflare Pages** + edge caching (static/_headers)                |
-| Forms       | Replaced by Calendly; legacy Turnstile form removed                  |
-| Animations  | Svelte `transition` + custom keyframes                               |
-| Analytics   | Google Analytics 4 (consent‑gated via Cookie Consent)                |
+> Production‑grade AI for startups and mid‑sized companies.  
+> Live: https://asdatable.com
 
 ---
 
-## 🚀 Local development
+## ✨ Stack
 
-    git clone https://github.com/<your‑org>/as‑datable‑website.git
-    cd as‑datable‑website
-    pnpm install          # or npm / yarn
-    pnpm dev              # hot‑reloads at http://localhost:5173
-
-### Production build
-
-    pnpm build            # outputs to .svelte-kit/
-
-Preview locally:
-
-    pnpm preview
+| Layer       | Tooling                                             |
+|-------------|-----------------------------------------------------|
+| Front‑end   | Static HTML + Tailwind CDN                          |
+| Animations  | CSS keyframes, IntersectionObserver, simple tilt    |
+| Forms       | FormSubmit (serverless email) + thank‑you page      |
+| Analytics   | Google Analytics 4 (consent‑gated)                  |
+| Consent     | vanilla‑cookieconsent                               |
+| Hosting     | Cloudflare Pages + `_headers`                       |
 
 ---
 
-## 🛫 Deploying to Cloudflare Pages
+## 🛠️ Local preview
 
-1. Create a new Pages project → “Import from GitHub”.
-2. Build command: `pnpm build`
-3. Output directory: `.svelte-kit/cloudflare`
-4. Environment variables (if you re‑enable Turnstile or other secrets):
+Open `index.html` directly in a browser, or serve the folder:
 
-       TURNSTILE_SITEKEY = xxx
-       GA_MEASUREMENT_ID = G‑XXXX
-
-5. Set production branch to `main` → every push auto‑deploys.
+    python3 -m http.server 8080
 
 ---
 
-## 🗺️ Project structure
+## 🚀 Deploying to Cloudflare Pages
 
-    src/
-    ├─ lib/components/   # Re‑usable, animated Svelte components
-    ├─ routes/           # +layout.svelte & +page.svelte = page composition
-    ├─ app.css           # Tailwind layers + custom utilities
-    static/              # Assets, sitemap, headers
-    tailwind.config.ts   # Colour palette & glass utilities
+- Framework preset: None
+- Build command: (empty)
+- Output directory: `.`
+- Domain: attach `asdatable.com` and add a rule `www → https://asdatable.com`
+- SSL: enable “Always Use HTTPS” and “Automatic HTTPS Rewrites”
+
+`_headers`, `robots.txt`, and `sitemap.xml` are at the repo root and will be applied.
 
 ---
 
-## 🪄 Contributing
+## 📁 Project structure
 
-Open to typo fixes, accessibility improvements, and performance PRs.  
-For larger changes, please open an issue first.
+    index.html        # Single‑page site
+    thanks.html       # Form success page
+    checklist.html    # Lead magnet
+    _headers          # Cache rules
+    robots.txt        # Robots
+    sitemap.xml       # Sitemap
+    static/           # Logos, favicons, images
 
-    pnpm lint        # Prettier + ESlint
-    pnpm check       # svelte‑check type safety
+---
+
+## 🧩 Customization
+
+- Update CTAs in `index.html` (Calendly and email)
+- Replace logos under `static/logos/`
+- Edit checklist content in `checklist.html`
 
 ---
 
 ## 📄 License
 
-MIT – Free to fork, adapt, and learn from.  
-If you reuse the copy or design, please keep a credit link.
+MIT. If you reuse significant portions of the copy/design, consider a credit link.
 
 ---
 
-### 💬 Need an LLM stack audited?
+### 💬 Work with Andreas
 
-Book a 15‑minute diagnostic call 👉 https://calendly.com/datable-as/llm-stack-sprint-intro-call
+Book a 15‑minute intro → https://calendly.com/datable-as/llm-stack-sprint-intro-call

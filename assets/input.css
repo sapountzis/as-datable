@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .container { @apply max-w-[1200px] mx-auto px-5; }
+  .card { @apply bg-white/5 border border-white/10 rounded-[14px]; }
+  .btn { @apply inline-flex items-center justify-center font-semibold rounded-[10px] px-4 py-3; }
+  .btn-primary { @apply text-white bg-gradient-to-br from-accent-500 to-violet-500 shadow-lg; }
+  .btn-ghost { @apply border border-white/10 text-slate-300; }
+  .eyebrow { @apply uppercase tracking-[.18em] text-xs text-blue-300; }
+}
+
+/* Custom CSS not expressed via Tailwind utilities */
+.bg-aurora { background: radial-gradient(900px circle at 10% 10%, rgba(127,150,255,0.10), transparent 40%), radial-gradient(900px circle at 90% 20%, rgba(148,110,255,0.10), transparent 40%), radial-gradient(700px circle at 30% 80%, rgba(74,222,128,0.08), transparent 40%), linear-gradient(180deg, #0b0e13, #0f141a 60%); }
+.mesh { position: absolute; inset: -80px 0 auto 0; height: 420px; pointer-events: none; filter: blur(40px) saturate(1.1); background:
+  radial-gradient(400px 200px at 20% 30%, rgba(127,150,255,.25), transparent 60%),
+  radial-gradient(360px 200px at 80% 10%, rgba(151,107,255,.22), transparent 60%),
+  radial-gradient(300px 160px at 60% 80%, rgba(74,222,128,.18), transparent 60%);
+}
+.ring-gradient { background: conic-gradient(from 180deg at 50% 50%, #7aa2ff, #976bff, #7aa2ff); padding: 2px; border-radius: 9999px; display:inline-flex; }
+.chip { display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem; border-radius:9999px; border:1px solid rgba(255,255,255,.12); color:#cbd5e1; font-size:.75rem; }
+
