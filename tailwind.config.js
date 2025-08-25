@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['Fraunces', 'Georgia', 'serif']
+        display: ['IBM Plex Serif', 'Georgia', 'serif']
       },
       colors: {
         ink: { 950: '#0b0e13', 900: '#0f141a', 800: '#141b22' },
