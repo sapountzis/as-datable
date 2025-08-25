@@ -37,6 +37,18 @@
       }
       .ring-gradient { background: conic-gradient(from 180deg at 50% 50%, #7aa2ff, #976bff, #7aa2ff); padding: 2px; border-radius: 9999px; display:inline-flex; }
       .chip { display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem; border-radius:9999px; border:1px solid rgba(255,255,255,.12); color:#cbd5e1; font-size:.75rem; }
+      
+      /* Logo carousel animation */
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-scroll {
+        animation: scroll 20s linear infinite;
+      }
+      .animate-scroll:hover {
+        animation-play-state: paused;
+      }
     </style>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -135,14 +147,32 @@
           <a href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener" class="btn btn-primary">Book a 15-min intro</a>
           <a href="mailto:datable.as@gmail.com" class="btn btn-ghost">Email Andreas</a>
         </div>
-        <div class="mt-10 text-sm text-slate-400 align-middle">Trusted by
-          <span class="inline-flex items-center gap-8 ml-4 align-middle">
+        <div class="mt-10 text-sm text-slate-400">
+          <div class="text-center md:text-left mb-3 md:mb-0 md:inline">Trusted by</div>
+          <!-- Desktop: Static layout -->
+          <div class="hidden md:inline-flex items-center gap-8 ml-0 md:ml-4 align-middle">
             <img src="/static/logos/airev-sm.webp" alt="AIREV" class="h-8"/>
             <img src="/static/logos/mentalyc-sm.webp" alt="Mentalyc" class="h-10"/>
             <img src="/static/logos/einbliq-dark-sm.webp" alt="Einbliq" class="h-10"/>
             <img src="/static/logos/yumio-sm.webp" alt="Yumio" class="h-8"/>
             <img src="/static/logos/ec-sm.webp" alt="European Commission" class="h-10"/>
-          </span>
+          </div>
+          <!-- Mobile: Animated carousel -->
+          <div class="md:hidden overflow-hidden">
+            <div class="logo-carousel flex items-center gap-8 animate-scroll">
+              <img src="/static/logos/airev-sm.webp" alt="AIREV" class="h-8 flex-shrink-0"/>
+              <img src="/static/logos/mentalyc-sm.webp" alt="Mentalyc" class="h-10 flex-shrink-0"/>
+              <img src="/static/logos/einbliq-dark-sm.webp" alt="Einbliq" class="h-10 flex-shrink-0"/>
+              <img src="/static/logos/yumio-sm.webp" alt="Yumio" class="h-8 flex-shrink-0"/>
+              <img src="/static/logos/ec-sm.webp" alt="European Commission" class="h-10 flex-shrink-0"/>
+              <!-- Duplicate for seamless loop -->
+              <img src="/static/logos/airev-sm.webp" alt="AIREV" class="h-8 flex-shrink-0"/>
+              <img src="/static/logos/mentalyc-sm.webp" alt="Mentalyc" class="h-10 flex-shrink-0"/>
+              <img src="/static/logos/einbliq-dark-sm.webp" alt="Einbliq" class="h-10 flex-shrink-0"/>
+              <img src="/static/logos/yumio-sm.webp" alt="Yumio" class="h-8 flex-shrink-0"/>
+              <img src="/static/logos/ec-sm.webp" alt="European Commission" class="h-10 flex-shrink-0"/>
+            </div>
+          </div>
         </div>
       </section>
 
