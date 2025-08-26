@@ -48,18 +48,7 @@
       }
       .ring-gradient { background: conic-gradient(from 180deg at 50% 50%, #7aa2ff, #976bff, #7aa2ff); padding: 2px; border-radius: 9999px; display:inline-flex; }
       .chip { display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem; border-radius:9999px; border:1px solid rgba(255,255,255,.12); color:#cbd5e1; font-size:.75rem; }
-      
-      /* Logo carousel animation */
-      @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-scroll {
-        animation: scroll 20s linear infinite;
-      }
-      .animate-scroll:hover {
-        animation-play-state: paused;
-      }
+
     </style>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -177,14 +166,21 @@
             <img src="/static/logos/ec-sm.webp" alt="European Commission" class="h-10"/>
           </div>
           <!-- Mobile: Animated carousel -->
-          <div class="md:hidden overflow-hidden">
-            <div class="logo-carousel flex items-center gap-8 animate-scroll">
+          <div class="md:hidden logo-carousel-container">
+            <div class="logo-carousel">
+              <!-- First set of logos -->
               <img src="/static/logos/airev-sm.webp" alt="AIREV" class="h-8 flex-shrink-0"/>
               <img src="/static/logos/mentalyc-sm.webp" alt="Mentalyc" class="h-10 flex-shrink-0"/>
               <img src="/static/logos/einbliq-dark-sm.webp" alt="Einbliq" class="h-10 flex-shrink-0"/>
               <img src="/static/logos/yumio-sm.webp" alt="Yumio" class="h-8 flex-shrink-0"/>
               <img src="/static/logos/ec-sm.webp" alt="European Commission" class="h-10 flex-shrink-0"/>
-              <!-- Duplicate for seamless loop -->
+              <!-- Second set for seamless loop -->
+              <img src="/static/logos/airev-sm.webp" alt="AIREV" class="h-8 flex-shrink-0"/>
+              <img src="/static/logos/mentalyc-sm.webp" alt="Mentalyc" class="h-10 flex-shrink-0"/>
+              <img src="/static/logos/einbliq-dark-sm.webp" alt="Einbliq" class="h-10 flex-shrink-0"/>
+              <img src="/static/logos/yumio-sm.webp" alt="Yumio" class="h-8 flex-shrink-0"/>
+              <img src="/static/logos/ec-sm.webp" alt="European Commission" class="h-10 flex-shrink-0"/>
+              <!-- Third set for extra smooth scrolling -->
               <img src="/static/logos/airev-sm.webp" alt="AIREV" class="h-8 flex-shrink-0"/>
               <img src="/static/logos/mentalyc-sm.webp" alt="Mentalyc" class="h-10 flex-shrink-0"/>
               <img src="/static/logos/einbliq-dark-sm.webp" alt="Einbliq" class="h-10 flex-shrink-0"/>

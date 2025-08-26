@@ -28,3 +28,27 @@
 .ring-gradient { background: conic-gradient(from 180deg at 50% 50%, #7aa2ff, #976bff, #7aa2ff); padding: 2px; border-radius: 9999px; display:inline-flex; }
 .chip { display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem; border-radius:9999px; border:1px solid rgba(255,255,255,.12); color:#cbd5e1; font-size:.75rem; }
 
+/* Logo carousel animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.logo-carousel {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+.logo-carousel:hover {
+  animation-play-state: paused;
+}
+
+.logo-carousel-container {
+  overflow: hidden;
+  width: 100%;
+  mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+}
