@@ -20,9 +20,20 @@
     <meta name="twitter:image" content="/static/as-logo.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://api.web3forms.com">
+    <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="preload" href="/static/logo.webp" as="image">
+    <link rel="preload" href="/static/profile.jpeg" as="image">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="/assets/styles.css" />
     <style>
+      /* Fallback fonts to prevent layout shift */
+      body { font-family: system-ui, -apple-system, sans-serif; }
+      .font-display { font-family: Georgia, serif; }
+      
       .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1.25rem; padding-right: 1.25rem; }
       .bg-aurora { background: radial-gradient(900px circle at 10% 10%, rgba(127,150,255,0.10), transparent 40%), radial-gradient(900px circle at 90% 20%, rgba(148,110,255,0.10), transparent 40%), radial-gradient(700px circle at 30% 80%, rgba(74,222,128,0.08), transparent 40%), linear-gradient(180deg, #0b0e13, #0f141a 60%); }
       .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; }
@@ -63,10 +74,11 @@
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0G1JNTY6WR"></script>
     <script>gtag('js',new Date()); gtag('config','G-0G1JNTY6WR');</script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.8.6/dist/cookieconsent.css" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.8.6/dist/cookieconsent.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.8.6/dist/cookieconsent.css"></noscript>
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.8.6/dist/cookieconsent.js"></script>
     <script>
-      window.addEventListener('DOMContentLoaded', function () {
+      function initializeCookieConsent() {
         if (window && window.initCookieConsent) {
           var cc = initCookieConsent();
           window.cc = cc;
@@ -111,7 +123,14 @@
             }
           });
         }
-      });
+      }
+      
+      // Initialize cookie consent after page loads
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeCookieConsent);
+      } else {
+        setTimeout(initializeCookieConsent, 100);
+      }
     </script>
   </head>
   <body class="bg-aurora text-slate-200">
@@ -340,7 +359,15 @@
         </div>
       </div>
     </footer>
-    <script>document.querySelector('[data-year]').textContent = new Date().getFullYear();</script>
+    <script>
+      // Non-blocking year update
+      requestAnimationFrame(function() {
+        var yearElement = document.querySelector('[data-year]');
+        if (yearElement) {
+          yearElement.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
   </body>
  </html>
 
