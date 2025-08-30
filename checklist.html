@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AI Infra Readiness Checklist</title>
+    <title>AI Application Planning Guide</title>
     <link rel="icon" href="/static/logo.ico" />
     <link rel="stylesheet" href="/assets/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,8 +15,8 @@
     <main class="container">
       <div class="flex items-center justify-between gap-3">
         <div>
-          <h1 class="text-3xl text-white">AI Infra Readiness Checklist</h1>
-          <p class="mt-2 text-slate-300">A practical diagnostic to get flaky LLM systems stable, observable, and cost-aware. Work top-to-bottom; each item has a clear result signal.</p>
+          <h1 class="text-3xl text-white">AI Application Planning Guide</h1>
+          <p class="mt-2 text-slate-300">A step-by-step framework to identify, design, and launch AI features that users love. Work through each section to build applications that deliver real business value.</p>
           <p class="mt-1 text-slate-400 text-sm">Progress: <span id="score">0</span> completed</p>
         </div>
         <div class="flex items-center gap-2">
@@ -26,81 +26,78 @@
       </div>
 
       <nav class="mt-4 text-sm text-slate-400">
-        <a href="#use">How to use</a> · <a href="#data">Data</a> · <a href="#evals">Evals</a> · <a href="#serving">Serving</a> · <a href="#obs">Observability & Cost</a> · <a href="#security">Security</a> · <a href="#ops">Ops</a>
+        <a href="#use">How to use</a> · <a href="#research">User Research</a> · <a href="#design">Feature Design</a> · <a href="#build">Development</a> · <a href="#launch">Launch</a> · <a href="#optimize">Optimization</a>
       </nav>
 
       <section id="use" class="card p-6 mt-6">
         <h2 class="text-xl text-white">How to use</h2>
         <ul class="mt-2 space-y-2 text-slate-300">
-          <li>Work in order. You can stabilize most systems in 1-2 weeks without a rewrite.</li>
-          <li>Each item lists a <strong>signal</strong> so you know when you're done.</li>
-          <li>If it's hard to measure, instrument it first—then decide any refactors.</li>
+          <li>Follow the sequence: research users first, then design features that solve real problems.</li>
+          <li>Each item includes a <strong>success signal</strong> so you know when to move forward.</li>
+          <li>Start small with one focused AI feature before expanding to more complex applications.</li>
         </ul>
       </section>
 
       <div class="mt-6 grid gap-4">
-        <section id="data" class="card p-6">
-          <h2 class="text-xl text-white">1) Data & Retrieval</h2>
+        <section id="research" class="card p-6">
+          <h2 class="text-xl text-white">1) User Research & Problem Validation</h2>
           <ul class="mt-3 space-y-2 text-slate-300">
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>One source of truth.</strong> Name the canonical store(s) and owners; list derived mirrors. <span class="text-slate-400 text-xs">Signal: a 1-page data map exists and is linked in the README.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Chunking that matches questions.</strong> Use header-aware or semantic chunking; overlap 10-20%. <span class="text-slate-400 text-xs">Signal: retrieval answers improve with overlap; precision@5 ≥ 0.6 on a golden set.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Embedding lifecycle.</strong> Record model+dim in metadata; re-embed on schema/model change. <span class="text-slate-400 text-xs">Signal: a one-click job re-embeds and re-indexes without manual edits.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Negative sampling.</strong> Add near-duplicates/hard negatives to improve rerankers. <span class="text-slate-400 text-xs">Signal: MRR improves ≥10% vs baseline within 24h.</span></span></label></li>
-            <li class="text-slate-400 text-xs">Tip: Keep doc IDs stable across re-ingests; treat deletes explicitly to avoid ghost results.</li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Talk to users first.</strong> Interview 8-12 users to understand their current workflow and pain points.<br/> <span class="text-slate-400 text-xs">Signal: you can describe the user's problem in their own words.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Map the user journey.</strong> Document the current process step-by-step, identify bottlenecks and friction points.<br/> <span class="text-slate-400 text-xs">Signal: visual journey map showing time/effort at each step.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Quantify the problem.</strong> Measure current metrics: time spent, error rates, user satisfaction.<br/> <span class="text-slate-400 text-xs">Signal: baseline metrics documented for later comparison.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Validate AI is the right solution.</strong> Confirm the problem requires intelligence, not just automation.<br/> <span class="text-slate-400 text-xs">Signal: users confirm AI would help vs. simpler alternatives.</span></span></label></li>
+            <li class="text-slate-400 text-xs">Tip: Many "AI problems" are actually UX problems. Fix the obvious issues first.</li>
           </ul>
         </section>
 
-        <section id="evals" class="card p-6">
-          <h2 class="text-xl text-white">2) Evaluation Harness</h2>
+        <section id="design" class="card p-6">
+          <h2 class="text-xl text-white">2) Feature Design & Planning</h2>
           <ul class="mt-3 space-y-2 text-slate-300">
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Golden set (50-200 items).</strong> Curate queries, expected answers, and references—including tricky counter-examples. <span class="text-slate-400 text-xs">Signal: repo contains <code>evals/</code> with data and scoring README.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Automatic scoring.</strong> Combine faithfulness/answer similarity with retrieval precision. <span class="text-slate-400 text-xs">Signal: one command prints a scorecard; CI fails if score drops ≥2 pts.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Prompt/config versioning.</strong> Track prompts, tools, and provider settings in Git. <span class="text-slate-400 text-xs">Signal: PRs show prompt diffs; releases reference a prompt hash.</span></span></label></li>
-            <li class="text-slate-400 text-xs">Tip: Reserve ~10% of tickets for eval maintenance to avoid silent drift.</li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Define success metrics.</strong> Set specific, measurable goals: user task completion, time saved, accuracy improved.<br/> <span class="text-slate-400 text-xs">Signal: clear definition of "better" that users and stakeholders agree on.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Choose the right AI pattern.</strong> Match the user need: chatbot, document analysis, recommendation, automation, etc.<br/> <span class="text-slate-400 text-xs">Signal: mockups show the specific interaction model and user flow.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Plan the MVP scope.</strong> Identify the smallest version that delivers value to one specific user type.<br/> <span class="text-slate-400 text-xs">Signal: MVP can be built in 2-4 weeks by your team.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Design for failure.</strong> Plan what happens when AI gives wrong answers or doesn't understand.<br/> <span class="text-slate-400 text-xs">Signal: error states and fallback flows are designed and tested.</span></span></label></li>
+            <li class="text-slate-400 text-xs">Tip: Design the human-AI collaboration, not just the AI feature in isolation.</li>
           </ul>
         </section>
 
-        <section id="serving" class="card p-6">
-          <h2 class="text-xl text-white">3) Serving & Reliability</h2>
+        <section id="build" class="card p-6">
+          <h2 class="text-xl text-white">3) Development & Integration</h2>
           <ul class="mt-3 space-y-2 text-slate-300">
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Budgets & timeouts.</strong> Set p95 latency budgets per step; enforce timeouts and retries with jitter. <span class="text-slate-400 text-xs">Signal: p95 ≤ 1.2× budget over the last 3 days.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Deterministic fallbacks.</strong> Define provider fallback order and circuit breakers. <span class="text-slate-400 text-xs">Signal: failovers visible in logs under a single trace ID.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Caching & batching.</strong> Cache safe calls; batch small vectors. <span class="text-slate-400 text-xs">Signal: tokens/request drop ≥25% without quality loss.</span></span></label></li>
-            <li class="text-slate-400 text-xs">Tip: Treat each tool call like an untrusted dependency—timeouts, retries, guardrails.</li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Start with simple prompts.</strong> Write clear, specific instructions before optimizing with complex techniques.<br/> <span class="text-slate-400 text-xs">Signal: prompts work reliably on 20+ test cases.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Build user feedback loops.</strong> Add thumbs up/down, rating, or correction mechanisms from day one.<br/> <span class="text-slate-400 text-xs">Signal: users can easily report when AI gets something wrong.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Integrate with existing workflows.</strong> Make AI fit into tools users already use daily.<br/> <span class="text-slate-400 text-xs">Signal: AI feature launches within existing product, not as separate app.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Handle edge cases gracefully.</strong> Test with unusual inputs, missing data, and ambiguous requests.<br/> <span class="text-slate-400 text-xs">Signal: AI degrades gracefully rather than breaking completely.</span></span></label></li>
+            <li class="text-slate-400 text-xs">Tip: Ship something imperfect that users can try, then improve based on real usage.</li>
           </ul>
         </section>
 
-        <section id="obs" class="card p-6">
-          <h2 class="text-xl text-white">4) Observability & Cost</h2>
+        <section id="launch" class="card p-6">
+          <h2 class="text-xl text-white">4) Launch & Validation</h2>
           <ul class="mt-3 space-y-2 text-slate-300">
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Trace every request.</strong> Use a trace ID spanning retrieval, LLM steps, and tools. <span class="text-slate-400 text-xs">Signal: any error links to a full trace in one click.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Dashboards that matter.</strong> Tokens, cost/action, latency, failure rate, cache hit-rate. <span class="text-slate-400 text-xs">Signal: a dashboard exists and is reviewed weekly.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Budgets & alerts.</strong> Daily budget cap and anomaly alerts (e.g., 3× token spike). <span class="text-slate-400 text-xs">Signal: alert fires in staging with a synthetic test.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Beta test with friendly users.</strong> Get 5-10 users to try it with your team watching.<br/> <span class="text-slate-400 text-xs">Signal: users can complete their intended task without help.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Track usage and outcomes.</strong> Monitor both engagement (how much) and effectiveness (how well).<br/> <span class="text-slate-400 text-xs">Signal: dashboard showing daily active users and success rates.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Gradual rollout.</strong> Launch to 10%, then 25%, then 50% of users while monitoring quality.<br/> <span class="text-slate-400 text-xs">Signal: each rollout phase meets quality thresholds before expanding.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Gather user stories.</strong> Collect specific examples of how AI helped users accomplish their goals.<br/> <span class="text-slate-400 text-xs">Signal: 3-5 concrete success stories from real users.</span></span></label></li>
+            <li class="text-slate-400 text-xs">Tip: Watch for users finding unexpected ways to use your AI feature.</li>
           </ul>
         </section>
 
-        <section id="security" class="card p-6">
-          <h2 class="text-xl text-white">5) Security, Privacy, Governance</h2>
+        <section id="optimize" class="card p-6">
+          <h2 class="text-xl text-white">5) Growth & Optimization</h2>
           <ul class="mt-3 space-y-2 text-slate-300">
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>PII handling.</strong> Redact logs; encrypt at rest; role-based access. <span class="text-slate-400 text-xs">Signal: sampled logs contain 0 PII; access is auditable.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Secrets & keys.</strong> Centralized secrets, rotation policy, provider quotas. <span class="text-slate-400 text-xs">Signal: runbook exists for key leak response in < 30 min.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Vendor posture.</strong> List approved providers and data boundaries. <span class="text-slate-400 text-xs">Signal: a doc answers “where can data go?” in one paragraph.</span></span></label></li>
-          </ul>
-        </section>
-
-        <section id="ops" class="card p-6">
-          <h2 class="text-xl text-white">6) Operational Cadence</h2>
-          <ul class="mt-3 space-y-2 text-slate-300">
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Weekly quality review.</strong> Check scorecard deltas, top failures, and cost trends. <span class="text-slate-400 text-xs">Signal: actions flow into the backlog.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Release gates.</strong> Canary to 10% traffic; rollback in one command. <span class="text-slate-400 text-xs">Signal: last release shows canary metrics in the PR.</span></span></label></li>
-            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Runbooks.</strong> Playbooks for common failures (provider outage, vector DB lag, cache-miss storm). <span class="text-slate-400 text-xs">Signal: a new engineer can resolve an incident within SLA.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Analyze user patterns.</strong> Identify which users get the most value and why.<br/> <span class="text-slate-400 text-xs">Signal: user segments clearly defined by usage and outcome patterns.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Improve based on feedback.</strong> Use thumbs down data and support tickets to prioritize improvements.<br/> <span class="text-slate-400 text-xs">Signal: weekly updates addressing top user complaints.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Expand successful patterns.</strong> Apply what works to adjacent use cases or user types.<br/> <span class="text-slate-400 text-xs">Signal: roadmap for next 2-3 AI features based on proven value.</span></span></label></li>
+            <li><label class="flex items-start gap-2"><input type="checkbox" class="mt-1 rd"/> <span><strong>Build competitive advantage.</strong> Use unique data or domain knowledge to make AI better than alternatives.<br/> <span class="text-slate-400 text-xs">Signal: users say your AI is noticeably better than generic options.</span></span></label></li>
+            <li class="text-slate-400 text-xs">Tip: Great AI products get better with use—plan how your system learns from users.</li>
           </ul>
         </section>
       </div>
 
       <div class="mt-8 flex items-center gap-3">
         <a href="/" class="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 font-semibold text-white">Back to home</a>
-        <a href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener" class="btn btn-ghost">Discuss a diagnostic sprint</a>
+        <a href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener" class="btn btn-ghost">Discuss your AI project</a>
       </div>
     </main>
     <script>
