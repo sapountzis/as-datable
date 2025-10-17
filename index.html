@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Andreas Sapountzis — AI Application Developer</title>
-    <meta name="description" content="I help teams build AI-powered applications from concept to launch. Custom AI solutions, intelligent features, and seamless integrations that delight users." />
+    <title>Andreas Sapountzis — AI & Machine Learning Engineer</title>
+    <meta name="description" content="AI Engineer with 5+ years building production LLM systems, agents, and ML pipelines. From neuroscience research to streaming analytics to multimodal AI—I solve hard problems at scale." />
     <link rel="canonical" href="https://asdatable.com/" />
     <link rel="icon" href="/static/logo.ico" />
     <link rel="icon" type="image/x-icon" href="/static/logo.ico" />
     <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://asdatable.com/" />
-    <meta property="og:title" content="Andreas Sapountzis — AI Application Developer" />
-    <meta property="og:description" content="Transform your product ideas into intelligent applications. Custom AI features that users love and businesses rely on." />
+    <meta property="og:title" content="Andreas Sapountzis — AI & Machine Learning Engineer" />
+    <meta property="og:description" content="Production AI systems that work. LLM operations, agentic workflows, and ML pipelines at scale." />
     <meta property="og:image" content="/static/as-logo.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Andreas Sapountzis — AI Application Developer" />
-    <meta name="twitter:description" content="Transform your product ideas into intelligent applications. Custom AI features that users love and businesses rely on." />
+    <meta name="twitter:title" content="Andreas Sapountzis — AI & Machine Learning Engineer" />
+    <meta name="twitter:description" content="Production AI systems that work. LLM operations, agentic workflows, and ML pipelines at scale." />
     <meta name="twitter:image" content="/static/as-logo.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +24,7 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://api.web3forms.com">
     <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="preload" href="/static/logo.webp" as="image">
     <link rel="preload" href="/static/profile.jpeg" as="image">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -48,6 +49,13 @@
       }
       .ring-gradient { background: conic-gradient(from 180deg at 50% 50%, #7aa2ff, #976bff, #7aa2ff); padding: 2px; border-radius: 9999px; display:inline-flex; }
       .chip { display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem; border-radius:9999px; border:1px solid rgba(255,255,255,.12); color:#cbd5e1; font-size:.75rem; }
+      
+      /* Swiper customization */
+      .swiper { padding-bottom: 48px; }
+      .swiper-wrapper { align-items: center; }
+      .swiper-pagination { bottom: 0 !important; }
+      .swiper-pagination-bullet { background: rgba(255,255,255,0.5); opacity: 1; }
+      .swiper-pagination-bullet-active { background: rgba(255,255,255,1); width: 24px; border-radius: 4px; }
 
     </style>
     <script>
@@ -127,13 +135,12 @@
       <nav class="container h-14 flex items-center justify-between">
         <a href="#home" class="font-display text-lg"><img src="/static/logo.webp" alt="AS" class="h-14 w-14 rounded-full"/></a>
         <ul class="hidden md:flex gap-6 text-sm">
-          <li><a href="#services" class="hover:text-white">Services</a></li>
-          <li><a href="#results" class="hover:text-white">Results</a></li>
-          <li><a href="#process" class="hover:text-white">Process</a></li>
-          <li><a href="#about" class="hover:text-white">About</a></li>
+          <li><a href="#work" class="hover:text-white">Work</a></li>
+          <li><a href="#approach" class="hover:text-white">Approach</a></li>
+          <li><a href="#background" class="hover:text-white">Background</a></li>
           <li><a href="#contact" class="hover:text-white">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn-primary text-sm">Book a call</a>
+        <a href="#contact" class="btn btn-ghost text-sm">Get in touch</a>
       </nav>
     </header>
 
@@ -144,19 +151,15 @@
           <span class="ring-gradient"><img src="/static/profile.jpeg" alt="AS" class="h-14 w-14 rounded-full bg-ink-900"/></span>
           <div class="text-sm text-slate-400">Andreas Sapountzis</div>
         </div>
-        <p class="eyebrow mt-5 mb-5">AI Application Development</p>
-        <h1 class="font-display text-4xl sm:text-6xl leading-tight text-white max-w-3xl">Transform your product with AI</h1>
-        <p class="mt-5 max-w-2xl text-slate-300">Custom AI applications that solve real problems. From intelligent chatbots to automated workflows — I build AI products that work.</p>
-        <div class="mt-4 flex gap-2">
-          <span class="chip">Accepting new projects</span>
-          <span class="chip">Fast turnaround</span>
-        </div>
+        <p class="eyebrow mt-5 mb-5">AI Engineer</p>
+        <h1 class="font-display text-4xl sm:text-6xl leading-tight text-white max-w-3xl">I build AI systems that actually work</h1>
+        <p class="mt-5 max-w-2xl text-slate-300">Five years shipping production LLM ops, agents, and ML pipelines at scale. From neuroscience research to multi-modal NPC engines - I solve hard problems.</p>
         <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <a href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener" class="btn btn-primary">Book a 15-min intro</a>
-          <a href="mailto:datable.as@gmail.com" class="btn btn-ghost">Email Andreas</a>
+          <a href="mailto:sapountzis.andreas@gmail.com" class="btn btn-ghost">sapountzis.andreas@gmail.com</a>
+          <a href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener" class="btn btn-ghost">Schedule a chat</a>
         </div>
         <div class="mt-10 text-sm text-slate-400">
-          <div class="text-center md:text-left mb-3 md:mb-0 md:inline">Trusted by</div>
+          <div class="text-center md:text-left mb-3 md:mb-0 md:inline">Worked with</div>
           <!-- Desktop: Static layout -->
           <div class="hidden md:inline-flex items-center gap-8 ml-0 md:ml-4 align-middle">
             <img src="/static/logos/airev-sm.webp" alt="AIREV" class="h-8"/>
@@ -185,154 +188,232 @@
         </div>
       </section>
 
-      <section id="services" class="container py-16">
-        <h2 class="font-display text-3xl text-white">What I build</h2>
+      <section id="work" class="container py-16">
+        <h2 class="font-display text-3xl text-white mb-8">Selected work</h2>
+        
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            
+            <!-- Slide 1: KEDA Hack -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8">
+              <h3 class="font-semibold text-xl text-white">Outsmarting Microsoft's $500/Month Tax</h3>
+              <p class="mt-3 text-slate-300">Einbliq's data pipeline uses Azure Durable Functions—long-running tasks that can take 30+ minutes. The problem: KEDA (Kubernetes autoscaling) only sees the entry point, not the actual work happening inside. So it thinks nothing is running and kills the whole thing mid-execution. Microsoft's "official" solution? A $500/month integration. For a pipeline that costs $10/month to run.</p>
+              <p class="mt-3 text-slate-300">I built a workaround. Added a "Keep Alive" endpoint that each task pings via HTTP every few minutes. Now KEDA sees constant traffic, knows work is happening, and doesn't kill anything. Same result, zero extra cost. Microsoft gets nothing.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Azure Durable Functions</span>
+                <span class="chip">KEDA</span>
+                <span class="chip">Cost optimization</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 2: Pipeline Optimization -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Making Everything Fast and Cheap</h3>
+              <p class="mt-3 text-slate-300">Beyond the KEDA hack, I redesigned the entire pipeline stack. Parallelized data loaders, moved from App Service Plans (always-on, expensive) to Container Apps (scales to zero, pay only when running), optimized queries with lazy evaluation to fetch less data, tuned memory allocation settings.</p>
+              <p class="mt-3 text-slate-300">The hardware improved too—moved from a resource-constrained B3 dev plan to proper specs. Everything got faster, and because we scale to zero when idle, costs dropped dramatically.</p>
+              <p class="mt-3 text-slate-300"><strong>Result:</strong> 86% cost reduction, 88% latency improvement.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Polars</span>
+                <span class="chip">Container Apps</span>
+                <span class="chip">Lazy evaluation</span>
+                <span class="chip">Infrastructure</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 3: Pattern Discovery -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Discovering Hidden Streaming Patterns</h3>
+              <p class="mt-3 text-slate-300">Einbliq's data had signal, but the business couldn't articulate what patterns mattered. They just said "find interesting patterns"—which means nothing.</p>
+              <p class="mt-3 text-slate-300">I approached it differently: labeled session-level data from multiple angles (QoE issues, error codes, playback duration, etc.) and used machine learning not to predict, but to discover—finding the natural splits and rules that separate good sessions from problematic ones. It's pattern mining, not classification. This revealed dozens of real insights about what causes streaming issues.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">ML</span>
+                <span class="chip">Pattern discovery</span>
+                <span class="chip">Statistical analysis</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 4: AI Gatekeeper -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Validating Patterns at Scale with AI</h3>
+              <p class="mt-3 text-slate-300">The patterns kept multiplying—too many for engineers to manually validate. So I built an LLM agent that acts as a gatekeeper. It gets access to raw session data, evaluates each detected pattern for significance, and only escalates the ones that actually matter.</p>
+              <p class="mt-3 text-slate-300">Instead of engineers drowning in alerts, they get a curated list of real, actionable issues worth investigating.</p>
+              <p class="mt-3 text-slate-300"><strong>Result:</strong> 90% reduction in triage effort.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">LLM agents</span>
+                <span class="chip">RAG</span>
+                <span class="chip">Pattern validation</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 5: Environmental Impact -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Measuring Environmental Impact of Streaming</h3>
+              <p class="mt-3 text-slate-300">No one was tracking the carbon footprint of digital streaming at device-level granularity. I pioneered the first model to measure environmental impact across a distribution network of 1M+ user devices. Built end-to-end analytics pipeline, created Grafana dashboards for real-time visualization, and enabled content providers to make data-driven sustainability decisions.</p>
+              <p class="mt-3 text-slate-300"><strong>Result:</strong> Industry-first environmental analytics with unprecedented detail.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Big Data</span>
+                <span class="chip">Grafana</span>
+                <span class="chip">Analytics</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 6: Mentalyc LLM Ops -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Fixing Therapist Note Generation</h3>
+              <p class="mt-3 text-slate-300">Mentalyc's AI-generated therapy notes were inconsistent and therapists were rejecting outputs. I rebuilt their LLM operations from the ground up: tightened prompts, improved retrieval pipelines, added guardrails, and created evaluation harnesses with real therapist feedback loops. Built curated datasets for regression testing and implemented cost controls through intelligent model routing and token-aware truncation—all without sacrificing quality.</p>
+              <p class="mt-3 text-slate-300"><strong>Result:</strong> 30% revenue impact through higher note acceptance rates.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">LLM ops</span>
+                <span class="chip">Prompt engineering</span>
+                <span class="chip">Eval harnesses</span>
+                <span class="chip">Cost optimization</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 7: Dreamia NPC Engine -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Building NPCs That Feel Alive</h3>
+              <p class="mt-3 text-slate-300">Yumio needed game characters that could hold natural conversations—voice input, emotional responses, character-specific knowledge, synchronized animations. I built Dreamia, a multimodal intelligence engine from scratch: integrated speech-to-text, text-to-speech, emotion classification, LLM tool-calling agents, vector databases for character memory, and safety layers. Optimized RPC and WebSocket architecture to serve thousands of concurrent players with sub-1-second p95 latency.</p>
+              <p class="mt-3 text-slate-300"><strong>Result:</strong> Production-ready NPC system handling thousands of simultaneous conversations.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">LLM agents</span>
+                <span class="chip">STT/TTS</span>
+                <span class="chip">Vector DB</span>
+                <span class="chip">WebSockets</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 8: AIREV -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Scaling Presales Research with AI</h3>
+              <p class="mt-3 text-slate-300">AIREV needed to automate lead scoring and report generation at scale. I built Revolution Engine, an end-to-end text classification service for training and deploying BERT models, and PresalesAI, a GPT-4 powered research tool using chain-of-thought reasoning. Designed MapReduce-style LLM pipelines for processing long documents and structured PostgreSQL schemas for data management.</p>
+              <p class="mt-3 text-slate-300"><strong>Result:</strong> 20% faster lead conversion, 35% higher sales close rates.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">BERT</span>
+                <span class="chip">GPT-4</span>
+                <span class="chip">LangChain</span>
+                <span class="chip">MapReduce</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 9: Neuroscience -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Decoding Brain Activity at Scale</h3>
+              <p class="mt-3 text-slate-300">Harvard Medical School and FORTH needed to analyze communication patterns in neuronal activity—10,000+ neurons generating 80GB+ of calcium imaging data. I led an 8-person data science team to build preprocessing pipelines, develop advanced ML algorithms for pattern detection, and create visualization tools for neuroscience researchers. Applied statistical multivariate analysis and neural networks to extract insights from massive biological datasets.</p>
+              <p class="mt-3 text-slate-300"><strong>Result:</strong> Published research on spontaneous brain activity patterns.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Big Data</span>
+                <span class="chip">ML</span>
+                <span class="chip">Neural networks</span>
+                <span class="chip">Research</span>
+              </div>
+              </article>
+            </div>
+
+            <!-- Slide 10: Crypto RL -->
+            <div class="swiper-slide">
+              <article class="card py-8 px-16 md:px-8 mx-4">
+              <h3 class="font-semibold text-xl text-white">Trading Crypto with Reinforcement Learning</h3>
+              <p class="mt-3 text-slate-300">For my master's thesis, I built an AI that learned to trade cryptocurrencies and optimize portfolios across multiple assets. Combined state-of-the-art reinforcement learning (Recurrent PPO) with financial market knowledge to create a strategy that remained profitable through both bull and bear markets. Handled dynamic asset allocation, risk management, and temporal dependencies in volatile markets.</p>
+              <p class="mt-3 text-slate-300"><strong>Result:</strong> Profitable strategy across market uptrends and downtrends.</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="chip">Reinforcement Learning</span>
+                <span class="chip">PyTorch</span>
+                <span class="chip">Time series</span>
+              </div>
+              </article>
+            </div>
+
+          </div>
+
+          <!-- Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+
+      <section id="approach" class="container py-16">
+        <h2 class="font-display text-3xl text-white">How I work</h2>
         <div class="mt-8 grid gap-6 md:grid-cols-2">
           <article class="card p-6">
-            <h3 class="font-semibold text-white">Intelligent Chatbots & Assistants</h3>
-            <p class="mt-2 text-slate-300">Custom AI assistants that understand your business, answer customer questions, and automate support workflows.</p>
+            <h3 class="font-semibold text-white">Production over prototypes</h3>
+            <p class="mt-2 text-slate-300">I build systems that scale. Everything I ship is instrumented, observable, and designed for real-world constraints—latency budgets, cost limits, privacy requirements. If it can't run in production reliably, it's not done.</p>
           </article>
           <article class="card p-6">
-            <h3 class="font-semibold text-white">Document Intelligence</h3>
-            <p class="mt-2 text-slate-300">Transform how your team works with documents: AI-powered search, summarization, and insights from your knowledge base.</p>
+            <h3 class="font-semibold text-white">Results, not hype</h3>
+            <p class="mt-2 text-slate-300">I optimize for measurable outcomes. Faster pipelines, lower costs, higher acceptance rates. The tech stack matters less than whether users' lives get better and businesses hit their goals.</p>
           </article>
           <article class="card p-6">
-            <h3 class="font-semibold text-white">Workflow Automation</h3>
-            <p class="mt-2 text-slate-300">AI agents that handle repetitive tasks: data processing, content generation, decision-making, and multi-step workflows.</p>
+            <h3 class="font-semibold text-white">Deep technical ownership</h3>
+            <p class="mt-2 text-slate-300">From model fine-tuning to database schemas to infrastructure autoscaling—I handle the full stack. I don't just integrate APIs; I architect systems that solve the hard problems beneath the surface.</p>
           </article>
           <article class="card p-6">
-            <h3 class="font-semibold text-white">Smart Product Features</h3>
-            <p class="mt-2 text-slate-300">Embed AI into your existing product: personalized recommendations, content moderation, and intelligent user experiences.</p>
+            <h3 class="font-semibold text-white">Iterate with evidence</h3>
+            <p class="mt-2 text-slate-300">I ship fast, measure rigorously, and iterate based on data. Evaluation harnesses, feedback loops, A/B tests, monitoring dashboards—every decision is grounded in what actually works, not what sounds clever.</p>
           </article>
         </div>
       </section>
 
-      <section id="offer" class="container py-16">
-        <h2 class="font-display text-3xl text-white">Ways to work together</h2>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-          <article class="card p-6">
-            <h3 class="font-display text-2xl text-white">Fractional AI Developer</h3>
-            <ul class="mt-3 list-disc pl-5 text-slate-300">
-              <li>6-12+ month engagement, building alongside your team</li>
-              <li>Weekly feature delivery, from prototype to production</li>
-              <li>User-focused AI that drives business value</li>
-            </ul>
-          </article>
-          <article class="card p-6">
-            <h3 class="font-display text-2xl text-white">AI Feature Sprint</h3>
-            <p class="mt-2 text-slate-300">A focused 1-2 week engagement to build and deploy a specific AI feature: chatbot, document analysis, or workflow automation. Fast results to prove value.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="why" class="container py-16">
-        <h2 class="font-display text-3xl text-white">Why teams choose me</h2>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-          <article class="card p-6">
-            <h3 class="font-semibold text-white">Idea to production</h3>
-            <p class="mt-2 text-slate-300">I turn your AI vision into working applications. From initial concept to deployed features that users actually use.</p>
-          </article>
-          <article class="card p-6">
-            <h3 class="font-semibold text-white">User-focused approach</h3>
-            <p class="mt-2 text-slate-300">AI that solves real problems, not technical demos. Every feature I build prioritizes user experience and business impact.</p>
-          </article>
-          <article class="card p-6">
-            <h3 class="font-semibold text-white">Diverse industry experience</h3>
-            <p class="mt-2 text-slate-300">From healthcare platforms to gaming to enterprise tools, I quickly understand your domain and build appropriate AI solutions.</p>
-          </article>
-          <article class="card p-6">
-            <h3 class="font-semibold text-white">Product partner</h3>
-            <p class="mt-2 text-slate-300">I work closely with your team on strategy and execution. Not just code delivery, but product thinking and user research.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="results" class="container py-16">
-        <h2 class="font-display text-3xl text-white">Selected results</h2>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-          <article class="card p-6"><h3 class="font-semibold text-white">Einbliq</h3><p class="mt-2 text-slate-300">Built an AI investigation agent that automatically triages alerts and reduces human workload by 90%, operating on top of an explainable anomaly detection system.</p></article>
-          <article class="card p-6"><h3 class="font-semibold text-white">Mentalyc</h3><p class="mt-2 text-slate-300">Improved therapist note quality and consistency by streamlining LLM operations and building robust evaluation datasets.</p></article>
-          <article class="card p-6"><h3 class="font-semibold text-white">AIREV</h3><p class="mt-2 text-slate-300">Developed classification pipelines and GPT-4 workflows that scale presales research with reliable, deterministic outputs.</p></article>
-          <article class="card p-6"><h3 class="font-semibold text-white">Yumio</h3><p class="mt-2 text-slate-300">Created Dreamia, a multimodal engine powering game NPCs that respond to voice and text with synchronized speech, animations, and character-specific knowledge.</p></article>
-        </div>
-      </section>
-
-      <section id="process" class="container py-16">
-        <h2 class="font-display text-3xl text-white">How we'll work</h2>
-        <div class="mt-8 grid gap-6 md:grid-cols-3">
-          <article class="card p-6">
-            <h3 class="font-semibold text-white">Step 1 — Discover</h3>
-            <p class="mt-2 text-slate-300">Understand your users, business goals, and technical constraints. Define the AI features that will drive real value.</p>
-          </article>
-          <article class="card p-6">
-            <h3 class="font-semibold text-white">Step 2 — Build</h3>
-            <p class="mt-2 text-slate-300">Develop and integrate AI features using proven patterns. Weekly demos and rapid iteration based on user feedback.</p>
-          </article>
-          <article class="card p-6">
-            <h3 class="font-semibold text-white">Step 3 — Launch</h3>
-            <p class="mt-2 text-slate-300">Deploy with confidence using gradual rollouts, monitoring, and optimization. Measure impact and plan next features.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="about" class="container py-16">
-        <h2 class="font-display text-3xl text-white">About</h2>
+      <section id="background" class="container py-16">
+        <h2 class="font-display text-3xl text-white">Background</h2>
         <div class="mt-6 grid gap-6 md:grid-cols-3">
           <article class="card p-6 md:col-span-2">
-            <h3 class="font-semibold text-white">Who I am</h3>
-            <p class="mt-2 text-slate-300">I'm Andreas Sapountzis, an AI application developer who helps teams integrate intelligent features into their products. My work spans mental health platforms, gaming, research tools, and business automation. I'm passionate about creating AI experiences that users find genuinely helpful and businesses can rely on.</p>
+            <h3 class="font-semibold text-white">Andreas Sapountzis</h3>
+            <p class="mt-2 text-slate-300">I'm an AI & Machine Learning Engineer with 5+ years building production systems. Started in neuroscience research analyzing brain activity patterns, then moved into streaming analytics at scale, and now focus on LLM operations and agentic systems. I've worked across healthcare, gaming, enterprise tools, and scientific research—wherever there's hard technical problems worth solving.</p>
+            <p class="mt-2 text-slate-300">M.Eng. in Electrical and Computer Engineering from Aristotle University of Thessaloniki. Based remotely, working with teams worldwide.</p>
             <div class="mt-3 flex flex-wrap gap-2">
-              <span class="chip">AI-powered features</span>
-              <span class="chip">Intelligent chatbots</span>
-              <span class="chip">Document AI</span>
-              <span class="chip">Workflow automation</span>
-              <span class="chip">Product integration</span>
+              <span class="chip">LLM systems</span>
+              <span class="chip">Agents & RAG</span>
+              <span class="chip">ML pipelines</span>
+              <span class="chip">Data engineering</span>
+              <span class="chip">Cloud infrastructure</span>
             </div>
           </article>
           <article class="card p-6">
-            <h3 class="font-semibold text-white">Principles</h3>
+            <h3 class="font-semibold text-white">What drives me</h3>
             <ul class="mt-2 space-y-2 text-slate-300 text-sm">
-              <li><strong>Reliability over novelty</strong></li>
-              <li><strong>Make it observable</strong></li>
-              <li><strong>Small, steady wins</strong></li>
-              <li><strong>Respect constraints (budget, latency, privacy)</strong></li>
+              <li><strong>Reliability over novelty</strong> — Production systems that just work.</li>
+              <li><strong>Make it observable</strong> — If you can't measure it, you can't improve it.</li>
+              <li><strong>Respect constraints</strong> — Budget, latency, privacy matter.</li>
             </ul>
           </article>
         </div>
       </section>
 
       <section id="contact" class="container py-16">
-        <h2 class="font-display text-3xl text-white">Let's talk</h2>
-        <div class="mt-6 grid gap-6 md:grid-cols-3">
-          <article class="md:col-span-2 card p-6">
-            <p class="text-slate-300">Share what you're building. I'll respond within 24 hours with specific next steps or suggest a quick call.</p>
-            <form action="https://api.web3forms.com/submit" method="POST" class="grid gap-3 mt-3">
+        <h2 class="font-display text-3xl text-white">Get in touch</h2>
+        <div class="mt-6 max-w-2xl">
+          <article class="card p-6">
+            <p class="text-slate-300">Working on something interesting? Drop me a line.</p>
+            <form action="https://api.web3forms.com/submit" method="POST" class="grid gap-3 mt-4">
               <input type="hidden" name="access_key" value="1ccc1049-c3bd-41a3-93f4-2ddc9e9f8ddc" />
-              <input type="hidden" name="subject" value="New Inquiry — asdatable.com" />
+              <input type="hidden" name="subject" value="New Message — asdatable.com" />
               <input type="hidden" name="from_name" value="asdatable.com" />
               <input type="hidden" name="redirect" value="https://asdatable.com/thanks.html" />
               <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
               <label class="text-sm">Name <input class="mt-1 w-full rounded-md bg-white/5 border border-white/10 px-3 py-2" name="name" required /></label>
               <label class="text-sm">Email <input class="mt-1 w-full rounded-md bg-white/5 border border-white/10 px-3 py-2" type="email" name="email" required /></label>
-              <label class="text-sm">What are you trying to achieve? <textarea class="mt-1 w-full rounded-md bg-white/5 border border-white/10 px-3 py-2" name="message" rows="4" required></textarea></label>
+              <label class="text-sm">Message <textarea class="mt-1 w-full rounded-md bg-white/5 border border-white/10 px-3 py-2" name="message" rows="4" required></textarea></label>
               <div class="flex gap-3 pt-1">
-                <button class="btn btn-primary" type="submit">Send inquiry</button>
-                <a class="btn btn-ghost" href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener">Or book a 15-min intro</a>
+                <button class="btn btn-primary" type="submit">Send</button>
+                <a class="btn btn-ghost" href="https://calendly.com/datable-as/llm-stack-sprint-intro-call" target="_blank" rel="noopener">Or schedule a call</a>
               </div>
-            </form>
-          </article>
-          <article class="card p-6">
-            <h3 class="font-semibold text-white">AI Application Planning Guide</h3>
-            <p class="mt-2 text-slate-300">Get the framework I use to identify and prioritize AI features for your product.</p>
-            <form action="https://api.web3forms.com/submit" method="POST" class="mt-3 flex gap-2">
-              <input type="hidden" name="access_key" value="1ccc1049-c3bd-41a3-93f4-2ddc9e9f8ddc" />
-              <input type="hidden" name="subject" value="Checklist Request — asdatable.com" />
-              <input type="hidden" name="from_name" value="asdatable.com" />
-              <input type="hidden" name="redirect" value="https://asdatable.com/thanks-checklist.html" />
-              <input type="hidden" name="lead_magnet" value="AI Application Planning Guide" />
-              <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
-              <input required type="email" name="email" placeholder="you@company.com" class="flex-1 rounded-md bg-white/5 border border-white/10 px-3 py-2" />
-              <button class="btn btn-ghost" type="submit">Send</button>
             </form>
           </article>
         </div>
@@ -358,6 +439,31 @@
         }
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      // Initialize Swiper
+      new Swiper('.swiper', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: {
+          delay: 6000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        },
+        effect: 'slide',
+        speed: 600,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        keyboard: {
+          enabled: true,
+        },
+        mousewheel: false,
+        grabCursor: true,
+      });
+    </script>
   </body>
- </html>
+</html>
 
