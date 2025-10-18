@@ -196,7 +196,7 @@
             
             <!-- Slide 1: KEDA Hack -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8">
+              <article class="card py-8 px-8 md:px-8">
               <h3 class="font-semibold text-xl text-white">Outsmarting Microsoft's $500/Month Tax</h3>
               <p class="mt-3 text-slate-300">Einbliq's data pipeline uses Azure Durable Functions—long-running tasks that can take 30+ minutes. The problem: KEDA (Kubernetes autoscaling) only sees the entry point, not the actual work happening inside. So it thinks nothing is running and kills the whole thing mid-execution. Microsoft's "official" solution? A $500/month integration. For a pipeline that costs $10/month to run.</p>
               <p class="mt-3 text-slate-300">I built a workaround. Added a "Keep Alive" endpoint that each task pings via HTTP every few minutes. Now KEDA sees constant traffic, knows work is happening, and doesn't kill anything. Same result, zero extra cost. Microsoft gets nothing.</p>
@@ -210,7 +210,7 @@
 
             <!-- Slide 2: Pipeline Optimization -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Making Everything Fast and Cheap</h3>
               <p class="mt-3 text-slate-300">Beyond the KEDA hack, I redesigned the entire pipeline stack. Parallelized data loaders, moved from App Service Plans (always-on, expensive) to Container Apps (scales to zero, pay only when running), optimized queries with lazy evaluation to fetch less data, tuned memory allocation settings.</p>
               <p class="mt-3 text-slate-300">The hardware improved too—moved from a resource-constrained B3 dev plan to proper specs. Everything got faster, and because we scale to zero when idle, costs dropped dramatically.</p>
@@ -226,7 +226,7 @@
 
             <!-- Slide 3: Pattern Discovery -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Discovering Hidden Streaming Patterns</h3>
               <p class="mt-3 text-slate-300">Einbliq's data had signal, but it was not clear what patterns mattered.</p>
               <p class="mt-3 text-slate-300">I approached it differently: labeled session-level data from multiple angles (QoE issues, error codes, playback duration, etc.) and used machine learning not to predict, but to discover, finding the natural splits and rules that separate good sessions from problematic ones. It's pattern mining, not classification. This revealed dozens of real insights about what causes streaming issues.</p>
@@ -240,7 +240,7 @@
 
             <!-- Slide 4: AI Gatekeeper -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Validating Patterns at Scale with AI</h3>
               <p class="mt-3 text-slate-300">The patterns kept multiplying. Too many for engineers to manually validate. So I built an LLM agent that acts as a gatekeeper. It gets access to raw session data, evaluates each detected pattern for significance, and only escalates the ones that actually matter.</p>
               <p class="mt-3 text-slate-300">Instead of engineers drowning in alerts, they get a curated list of real, actionable issues worth investigating.</p>
@@ -255,7 +255,7 @@
 
             <!-- Slide 5: Environmental Impact -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Measuring Environmental Impact of Streaming</h3>
               <p class="mt-3 text-slate-300">No one was tracking the carbon footprint of digital streaming at device-level granularity. I pioneered the first model to measure environmental impact across a distribution network of 1M+ user devices. Built end-to-end analytics pipeline, created Grafana dashboards for real-time visualization, and enabled content providers to make data-driven sustainability decisions.</p>
               <p class="mt-3 text-slate-300"><strong>Result:</strong> Industry-first environmental analytics with unprecedented detail.</p>
@@ -269,7 +269,7 @@
 
             <!-- Slide 6: Mentalyc LLM Ops -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Fixing Therapist Note Generation</h3>
               <p class="mt-3 text-slate-300">Mentalyc's AI-generated therapy notes were inconsistent and therapists were rejecting outputs. I rebuilt their LLM operations from the ground up: tightened prompts, improved retrieval pipelines, added guardrails, and created evaluation harnesses with real therapist feedback loops. Built curated datasets for regression testing and implemented cost controls through intelligent model routing and token-aware truncation. All without sacrificing quality.</p>
               <p class="mt-3 text-slate-300"><strong>Result:</strong> 30% revenue impact through higher note acceptance rates.</p>
@@ -284,7 +284,7 @@
 
             <!-- Slide 7: Dreamia NPC Engine -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Building NPCs That Feel Alive</h3>
               <p class="mt-3 text-slate-300">Yumio needed game characters that could hold natural conversations with voice input, emotional responses, character-specific knowledge, and synchronized animations. I built Dreamia, a multimodal intelligence engine from scratch: integrated speech-to-text, text-to-speech, emotion classification, LLM tool-calling agents, vector databases for character memory, and safety layers. Optimized RPC and WebSocket architecture to serve thousands of concurrent players with sub-1-second p95 latency.</p>
               <p class="mt-3 text-slate-300"><strong>Result:</strong> Production-ready NPC system handling thousands of simultaneous conversations.</p>
@@ -299,7 +299,7 @@
 
             <!-- Slide 8: AIREV -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Scaling Presales Research with AI</h3>
               <p class="mt-3 text-slate-300">AIREV needed to automate lead scoring and report generation at scale. I built Revolution Engine, an end-to-end text classification service for training and deploying BERT models, and PresalesAI, a GPT-4 powered research tool using chain-of-thought reasoning. Designed MapReduce-style LLM pipelines for processing long documents and structured PostgreSQL schemas for data management.</p>
               <p class="mt-3 text-slate-300"><strong>Result:</strong> 20% faster lead conversion, 35% higher sales close rates.</p>
@@ -314,7 +314,7 @@
 
             <!-- Slide 9: Neuroscience -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Decoding Brain Activity at Scale</h3>
               <p class="mt-3 text-slate-300">Harvard Medical School and FORTH needed to analyze communication patterns in neuronal activity, 10,000+ neurons generating 80GB+ of calcium imaging data. I led an 8-person data science team to build preprocessing pipelines, develop advanced ML algorithms for pattern detection, and create visualization tools for neuroscience researchers. Applied statistical multivariate analysis and neural networks to extract insights from massive biological datasets.</p>
               <p class="mt-3 text-slate-300"><strong>Result:</strong> Published research on spontaneous brain activity patterns.</p>
@@ -329,7 +329,7 @@
 
             <!-- Slide 10: Crypto RL -->
             <div class="swiper-slide">
-              <article class="card py-8 px-16 md:px-8 mx-4">
+              <article class="card py-8 px-8 md:px-8 mx-4">
               <h3 class="font-semibold text-xl text-white">Trading Crypto with Reinforcement Learning</h3>
               <p class="mt-3 text-slate-300">For my master's thesis, I built an AI that learned to trade cryptocurrencies and optimize portfolios across multiple assets. Combined state-of-the-art reinforcement learning (Recurrent PPO) with financial market knowledge to create a strategy that remained profitable through both bull and bear markets. Handled dynamic asset allocation, risk management, and temporal dependencies in volatile markets.</p>
               <p class="mt-3 text-slate-300"><strong>Result:</strong> Profitable strategy across market uptrends and downtrends.</p>
