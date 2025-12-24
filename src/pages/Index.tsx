@@ -34,13 +34,13 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Andreas Sapountzis — Senior Production AI Systems Engineer (Architecture + Data)</title>
+        <title>Andreas Sapountzis — Senior Data & AI Systems Engineer</title>
         <meta
           name="description"
           content="I design and build production AI systems and data platforms that work. Architecture, pipelines, agentic workflows, observability, cost control. Best for hard 0→1 problems and rescue missions."
         />
         <link rel="canonical" href="https://asdatable.com/" />
-        <meta property="og:title" content="Andreas Sapountzis — Senior Production AI Systems Engineer (Architecture + Data)" />
+        <meta property="og:title" content="Andreas Sapountzis — Senior Data & AI Systems Engineer" />
         <meta property="og:description" content="I design and build production AI systems and data platforms that work. Architecture, pipelines, agentic workflows, observability, cost control. Best for hard 0→1 problems and rescue missions." />
         <meta property="og:image" content="/as-logo.webp" />
         <meta property="og:url" content="https://asdatable.com/" />
