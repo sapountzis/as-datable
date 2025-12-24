@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -7,6 +8,10 @@ import { getCaseStudyBySlug } from "@/data/caseStudies";
 const CaseStudy = () => {
   const { slug } = useParams<{ slug: string }>();
   const study = getCaseStudyBySlug(slug || "");
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [slug]);
 
   if (!study) {
     return (

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/home/Hero";
@@ -11,6 +12,25 @@ import FAQ from "@/components/home/FAQ";
 import Contact from "@/components/home/Contact";
 
 const Index = () => {
+  // Mark that user has visited homepage (for skipping animations on return)
+  useEffect(() => {
+    sessionStorage.setItem("hasVisitedHome", "true");
+  }, []);
+
+  // Scroll to section if explicitly requested
+  useEffect(() => {
+    const scrollTarget = sessionStorage.getItem("scrollToSection");
+    if (scrollTarget) {
+      sessionStorage.removeItem("scrollToSection");
+      setTimeout(() => {
+        const element = document.getElementById(scrollTarget);
+        if (element) {
+          const top = element.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: "instant" });
+        }
+      }, 50);
+    }
+  }, []);
   return (
     <>
       <Helmet>

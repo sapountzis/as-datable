@@ -11,7 +11,9 @@ export function useInView<T extends HTMLElement = HTMLDivElement>(
 ): [React.RefObject<T>, boolean] {
   const { threshold = 0.1, rootMargin = "0px", triggerOnce = true } = options;
   const ref = useRef<T>(null);
-  const [isInView, setIsInView] = useState(false);
+  // Skip animation if user already visited homepage this session
+  const hasVisitedHome = sessionStorage.getItem("hasVisitedHome") === "true";
+  const [isInView, setIsInView] = useState(hasVisitedHome);
 
   useEffect(() => {
     const element = ref.current;

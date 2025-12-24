@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -14,14 +14,21 @@ const navLinks = [
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     if (href.startsWith("/#")) {
+      const id = href.replace("/#", "");
       if (location.pathname !== "/") {
-        window.location.href = href;
+        // Use browser back if we came from homepage, otherwise navigate
+        sessionStorage.setItem("scrollToSection", id);
+        if (window.history.state?.idx > 0) {
+          window.history.back();
+        } else {
+          navigate("/");
+        }
       } else {
-        const id = href.replace("/#", "");
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }
     }
