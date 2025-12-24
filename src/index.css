@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 173 58% 50%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 250 60% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 173 58% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors */
+    --aurora-start: 222 47% 6%;
+    --aurora-mid: 250 40% 12%;
+    --aurora-end: 200 40% 10%;
+    
+    --glass: 222 47% 11%;
+    --glass-border: 222 30% 22%;
+    
+    --text-primary: 210 40% 98%;
+    --text-secondary: 215 20% 70%;
+    --text-muted: 215 15% 50%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(173 58% 50%), hsl(200 60% 55%));
+    --gradient-aurora: linear-gradient(135deg, hsl(222 47% 6%), hsl(250 40% 12%), hsl(200 40% 10%));
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 10%), hsl(222 47% 7%));
+    
+    --shadow-glow: 0 0 40px hsl(173 58% 50% / 0.15);
+    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.3);
+    
+    --font-display: 'IBM Plex Serif', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 173 58% 50%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 47% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 173 58% 50%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-glass-border rounded-xl;
+    background: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .aurora-bg {
+    background: var(--gradient-aurora);
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-all duration-300;
+    @apply bg-primary text-primary-foreground hover:opacity-90;
+    @apply shadow-lg hover:shadow-glow;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold rounded-lg transition-all duration-300;
+    @apply bg-secondary text-secondary-foreground border border-border hover:border-primary/50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-4 py-2 font-medium rounded-lg transition-all duration-300;
+    @apply text-muted-foreground hover:text-foreground hover:bg-secondary;
+  }
+
+  .chip {
+    @apply inline-flex items-center px-3 py-1 text-sm font-medium rounded-full;
+    @apply bg-secondary text-muted-foreground border border-border;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg transition-all duration-200;
+    @apply bg-secondary border border-border text-foreground placeholder:text-muted-foreground;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:border-primary/30 hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(173 58% 50% / 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(173 58% 50% / 0.2);
+  }
+}
