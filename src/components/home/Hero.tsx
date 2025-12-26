@@ -5,12 +5,12 @@ import { lazy, Suspense } from "react";
 const NeuralFabric = lazy(() => import("../NeuralFabric"));
 
 const proofMetrics = [
-  "86% cost reduction",
-  "88% latency improvement",
-  "90% less alert triage",
-  "30% revenue impact",
-  "1M+ devices modeled",
-  "p95 < 1s at scale",
+  { value: "86%", label: "cost reduction" },
+  { value: "88%", label: "latency improvement" },
+  { value: "90%", label: "less alert triage" },
+  { value: "30%", label: "revenue impact" },
+  { value: "1M+", label: "devices modeled" },
+  { value: "100B+", label: "events processed" },
 ];
 
 const clientLogos = [
@@ -38,7 +38,7 @@ const Hero = () => {
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Eyebrow */}
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full border border-primary/20">
+          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/20 rounded-full border border-primary/30">
             Production AI & Data Systems Architect
           </span>
 
@@ -96,15 +96,30 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* Proof bar */}
+        {/* Proof metrics - visually impactful stat cards */}
         <div className="mt-16">
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            {proofMetrics.map((metric) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {proofMetrics.map((metric, index) => (
               <div
-                key={metric}
-                className="px-4 py-2 text-sm font-medium text-foreground bg-secondary rounded-lg border border-border"
+                key={metric.label}
+                className="group relative flex"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {metric}
+                {/* Gradient border effect - fixed positioning */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Card content - fixed height and alignment */}
+                <div className="relative flex-1 flex flex-col items-center justify-center p-4 md:p-5 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-all duration-300 hover:transform hover:-translate-y-1 min-h-[120px]">
+                  {/* Large emphasized number */}
+                  <div className="text-2xl md:text-3xl font-bold text-primary mb-1 font-display">
+                    {metric.value}
+                  </div>
+                  
+                  {/* Subtle label - fixed height container */}
+                  <div className="text-xs md:text-sm text-muted-foreground text-center leading-tight h-8 flex items-center justify-center">
+                    {metric.label}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

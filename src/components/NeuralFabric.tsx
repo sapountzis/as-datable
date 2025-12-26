@@ -90,8 +90,10 @@ const NeuralFabric = () => {
 
     const scene = new THREE.Scene();
     
-    const w = window.innerWidth;
-    const h = window.innerHeight;
+    // Use container dimensions instead of window dimensions
+    const rect = containerRef.current.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
     const camera = new THREE.OrthographicCamera(
       -w / 2, w / 2,
       h / 2, -h / 2,
@@ -363,8 +365,11 @@ const NeuralFabric = () => {
 
     // Resize handler
     const handleResize = () => {
-      const newW = window.innerWidth;
-      const newH = window.innerHeight;
+      if (!containerRef.current) return;
+      
+      const rect = containerRef.current.getBoundingClientRect();
+      const newW = rect.width;
+      const newH = rect.height;
       
       camera.left = -newW / 2;
       camera.right = newW / 2;
