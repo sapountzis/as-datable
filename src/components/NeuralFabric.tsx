@@ -91,9 +91,10 @@ const NeuralFabric = () => {
     const scene = new THREE.Scene();
     
     // Use container dimensions instead of window dimensions
+    // Cache dimensions to avoid repeated reflows
     const rect = containerRef.current.getBoundingClientRect();
-    const w = rect.width;
-    const h = rect.height;
+    const w = rect.width || window.innerWidth;
+    const h = rect.height || window.innerHeight;
     const camera = new THREE.OrthographicCamera(
       -w / 2, w / 2,
       h / 2, -h / 2,
@@ -396,9 +397,15 @@ const NeuralFabric = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const cleanup = initScene();
+    let cleanup: (() => void) | undefined;
+
+    // Defer initialization to avoid blocking initial render (prioritize LCP)
+    const timeoutId = setTimeout(() => {
+      cleanup = initScene();
+    }, 100); // Small delay to prioritize initial content rendering
 
     return () => {
+      clearTimeout(timeoutId);
       cleanup?.();
     };
   }, [initScene]);

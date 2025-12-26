@@ -37,5 +37,14 @@ export default defineConfig(({ mode }) => ({
     },
     // Smaller chunk size warnings
     chunkSizeWarningLimit: 1000,
+    // Inline critical CSS for faster FCP
+    cssCodeSplit: true,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
   },
 }));
