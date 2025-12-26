@@ -397,15 +397,9 @@ const NeuralFabric = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    let cleanup: (() => void) | undefined;
-
-    // Defer initialization to avoid blocking initial render (prioritize LCP)
-    const timeoutId = setTimeout(() => {
-      cleanup = initScene();
-    }, 100); // Small delay to prioritize initial content rendering
+    const cleanup = initScene();
 
     return () => {
-      clearTimeout(timeoutId);
       cleanup?.();
     };
   }, [initScene]);
