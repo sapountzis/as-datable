@@ -15,4 +15,27 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Chunk splitting for better caching
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Vendor chunks
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'radix-vendor': [
+            '@radix-ui/react-accordion',
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-label',
+            '@radix-ui/react-separator',
+            '@radix-ui/react-slot',
+            '@radix-ui/react-toast',
+          ],
+          'three-vendor': ['three', '@react-three/fiber'],
+        },
+      },
+    },
+    // Smaller chunk size warnings
+    chunkSizeWarningLimit: 1000,
+  },
 }));

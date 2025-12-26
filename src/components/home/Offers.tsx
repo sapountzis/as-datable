@@ -50,7 +50,7 @@ const offers = [
 
 const Offers = () => {
   return (
-    <section id="offers" className="py-20 lg:py-28 bg-secondary/30">
+    <section id="offers" className="py-20 lg:py-28">
       <div className="section-container">
         <AnimateIn className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">

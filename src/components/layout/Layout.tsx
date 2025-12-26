@@ -35,9 +35,11 @@ const Layout = ({ children }: LayoutProps) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col aurora-bg">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Background layer */}
+      <div className="fixed inset-0 bg-background" style={{ zIndex: -2 }} />
       <Header />
-      <main className="flex-1 pt-16 lg:pt-20">{children}</main>
+      <main className="flex-1 pt-16 lg:pt-20 relative z-10">{children}</main>
       <Footer onOpenCookieSettings={() => setShowCookieSettings(true)} />
       
       {hasConsent === null && (
