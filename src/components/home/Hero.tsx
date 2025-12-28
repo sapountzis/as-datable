@@ -36,9 +36,9 @@ const Hero = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       
       <div className="section-container relative z-10">
-        <div className="max-w-4xl mx-auto text-center backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Eyebrow */}
-          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/20 rounded-full border border-primary/30">
+          <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/20 rounded-full border border-primary/30 backdrop-blur-sm">
             Production AI & Data Systems Architect
           </span>
 
