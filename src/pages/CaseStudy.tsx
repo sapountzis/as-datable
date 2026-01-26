@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import { getCaseStudyBySlug } from "@/data/caseStudies";
 
@@ -107,28 +107,17 @@ const CaseStudy = () => {
                 </div>
               </section>
 
-              {/* CTAs */}
+              {/* Contact */}
               <div className="glass-card p-6 lg:p-8">
                 <p className="text-muted-foreground mb-6">
-                  Interested in similar work for your project?
+                  Interested in discussing engineering challenges?
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="https://calendly.com/datable-as/llm-stack-sprint-intro-call"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary group"
-                  >
-                    Book 15-min Call
-                    <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <Link to="/brief" className="btn-secondary">
-                    Send a 2-minute Brief
-                  </Link>
-                  <Link to="/resources/ai-systems-launch-checklist" className="btn-ghost">
-                    Get the Checklist
-                  </Link>
-                </div>
+                <a
+                  href="mailto:sapountzis.andreas@gmail.com"
+                  className="btn-secondary inline-block"
+                >
+                  Get in touch
+                </a>
               </div>
             </div>
           </div>

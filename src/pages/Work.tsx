@@ -104,20 +104,15 @@ const Work = () => {
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16">
+            {/* Contact */}
+            <div className="flex flex-col items-center justify-center gap-4 mt-16">
               <a
-                href="https://calendly.com/datable-as/llm-stack-sprint-intro-call"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary group"
+                href="mailto:sapountzis.andreas@gmail.com"
+                className="btn-secondary inline-flex items-center gap-2"
               >
-                Book 15-min Call
-                <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                Get in touch
+                <ArrowRight size={18} />
               </a>
-              <Link to="/brief" className="btn-secondary">
-                Send a 2-minute Brief
-              </Link>
             </div>
           </div>
         </section>

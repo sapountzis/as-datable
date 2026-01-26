@@ -9,11 +9,6 @@ import Index from "./pages/Index";
 
 const Work = lazy(() => import("./pages/Work"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy"));
-const Brief = lazy(() => import("./pages/Brief"));
-const Resources = lazy(() => import("./pages/Resources"));
-const Checklist = lazy(() => import("./pages/Checklist"));
-const Thanks = lazy(() => import("./pages/Thanks"));
-const ThanksChecklist = lazy(() => import("./pages/ThanksChecklist"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -32,11 +27,6 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/work" element={<Work />} />
               <Route path="/work/:slug" element={<CaseStudy />} />
-              <Route path="/brief" element={<Brief />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/resources/ai-systems-launch-checklist" element={<Checklist />} />
-              <Route path="/thanks" element={<Thanks />} />
-              <Route path="/thanks-checklist" element={<ThanksChecklist />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="*" element={<NotFound />} />
