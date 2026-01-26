@@ -1,4 +1,4 @@
-import { ArrowRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
@@ -49,47 +49,18 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-            End-to-end AI systems engineering — built for production.
+            Building production AI and data systems that scale
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto text-balance">
-            I design and ship AI systems under real constraints: cost, latency, privacy, and reliability. Best for 0→1 delivery and high-stakes rescues.
+            I design and ship AI systems under real constraints: cost, latency, privacy, and reliability. Best for complex engineering challenges and cross-system architecture.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-            <a
-              href="https://calendly.com/datable-as/llm-stack-sprint-intro-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary group"
-            >
-              Book 15-min Call
-              <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <Link to="/brief" className="btn-secondary">
-              Send a 2-minute Brief
-            </Link>
-          </div>
-
-          {/* Tertiary CTA */}
-          <Link
-            to="/resources/ai-systems-launch-checklist"
-            className="inline-block text-sm text-foreground hover:text-primary transition-colors mb-4"
-            style={{ 
-              animationDelay: "0.5s",
-              textShadow: "0 2px 8px rgba(0, 0, 0, 0.8), 0 0 2px rgba(0, 0, 0, 0.8)"
-            }}
-          >
-            Get the AI Systems Launch Checklist (free PDF) →
-          </Link>
-
-          {/* Email chip */}
+          {/* Email */}
           <a
             href="mailto:sapountzis.andreas@gmail.com"
             className="inline-flex items-center gap-2 px-4 py-2 text-sm text-foreground hover:text-primary bg-secondary rounded-full border border-border hover:border-primary/30 transition-all"
-            style={{ animationDelay: "0.6s" }}
           >
             <Mail size={16} />
             sapountzis.andreas@gmail.com

@@ -8,10 +8,12 @@ const skills = [
   "Cloud infrastructure",
 ];
 
-const whatDrivesMe = [
-  "Reliability over novelty — Production systems that just work.",
-  "Make it observable — If you can't measure it, you can't improve it.",
-  "Respect constraints — Budget, latency, privacy matter.",
+const philosophy = [
+  "Build for production when reliability matters",
+  "Explore novel solutions for unsolved problems",
+  "Context awareness - applying the right approach",
+  "Cross-system thinking - every decision impacts the broader architecture",
+  "Observability - measuring what matters",
 ];
 
 const About = () => {
@@ -38,16 +40,16 @@ const About = () => {
                   <h3 className="font-display text-2xl font-bold text-foreground">
                     Andreas Sapountzis
                   </h3>
-                  <p className="text-muted-foreground">AI & ML Engineer</p>
+                  <p className="text-muted-foreground">Staff-level Data & AI Systems Engineer</p>
                 </div>
               </div>
-              
+
               <div className="space-y-4 text-muted-foreground mb-6">
                 <p>
-                  I'm an AI & Machine Learning Engineer with 5+ years building production systems. Started in neuroscience research analyzing brain activity patterns, then moved into streaming analytics at scale, and now focus on LLM operations and agentic systems. I've worked across healthcare, gaming, enterprise tools, and scientific research, wherever there's hard technical problems worth solving.
+                  My journey started in neuroscience research, analyzing complex brain activity patterns and dynamic systems. I then moved into streaming analytics at scale, where I learned to handle real-time constraints and massive throughput. Now I focus on LLM operations and agentic systems, solving novel AI problems in production environments.
                 </p>
                 <p>
-                  M.Eng. in Electrical and Computer Engineering from Aristotle University of Thessaloniki. Based remotely, working with teams worldwide.
+                  I have worked across healthcare, gaming, enterprise tools, and scientific research wherever there are hard technical problems worth solving. M.Eng. in Electrical and Computer Engineering from Aristotle University of Thessaloniki. Based remotely, working with teams worldwide.
                 </p>
               </div>
 
@@ -61,14 +63,14 @@ const About = () => {
             </div>
           </AnimateIn>
 
-          {/* What drives me */}
+          {/* Engineering philosophy */}
           <AnimateIn delay={200}>
             <div className="glass-card p-6 lg:p-8 h-full">
               <h4 className="font-display text-lg font-semibold text-foreground mb-4">
-                What drives me
+                Engineering philosophy
               </h4>
               <ul className="space-y-4">
-                {whatDrivesMe.map((item) => (
+                {philosophy.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-muted-foreground">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" />
                     {item}

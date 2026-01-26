@@ -4,10 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Work", href: "/work" },
-  { label: "Offers", href: "/#offers" },
-  { label: "How it works", href: "/#how-it-works" },
   { label: "About", href: "/#about" },
-  { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -70,18 +67,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
-            <a
-              href="https://calendly.com/datable-as/llm-stack-sprint-intro-call"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-sm"
-            >
-              Book 15-min Call
-            </a>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -116,14 +101,6 @@ const Header = () => {
                   </Link>
                 )
               ))}
-              <a
-                href="https://calendly.com/datable-as/llm-stack-sprint-intro-call"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-center mt-2"
-              >
-                Book 15-min Call
-              </a>
             </nav>
           </div>
         )}
