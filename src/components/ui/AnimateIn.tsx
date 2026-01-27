@@ -1,3 +1,5 @@
+"use client";
+
 import { useInView } from "@/hooks/useInView";
 import { cn } from "@/lib/utils";
 
@@ -7,10 +9,10 @@ interface AnimateInProps {
   delay?: number;
 }
 
-export function AnimateIn({ 
-  children, 
-  className, 
-  delay = 0 
+export function AnimateIn({
+  children,
+  className,
+  delay = 0
 }: AnimateInProps) {
   const [ref, isInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
@@ -19,8 +21,8 @@ export function AnimateIn({
       ref={ref}
       className={cn(
         "transition-all duration-500 ease-out",
-        isInView 
-          ? "opacity-100 translate-y-0" 
+        isInView
+          ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4",
         className
       )}

@@ -1,8 +1,10 @@
-import { Mail } from "lucide-react";
-import { Link } from "react-router-dom";
-import { lazy, Suspense } from "react";
+"use client";
 
-const NeuralFabric = lazy(() => import("../NeuralFabric"));
+import { Mail } from "lucide-react";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const NeuralFabric = dynamic(() => import("../NeuralFabric"), { ssr: false });
 
 const proofMetrics = [
   { value: "86%", label: "cost reduction" },
@@ -29,12 +31,12 @@ const Hero = () => {
           <NeuralFabric />
         </Suspense>
       </div>
-      
+
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
-      
+
       {/* Background glow effect */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-      
+
       <div className="section-container relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Eyebrow */}
@@ -78,14 +80,14 @@ const Hero = () => {
               >
                 {/* Gradient border effect - fixed positioning */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
+
                 {/* Card content - fixed height and alignment */}
                 <div className="relative flex-1 flex flex-col items-center justify-center p-4 md:p-5 bg-secondary/50 backdrop-blur-sm rounded-xl border border-border hover:border-primary/30 transition-all duration-300 hover:transform hover:-translate-y-1 min-h-[120px]">
                   {/* Large emphasized number */}
                   <div className="text-2xl md:text-3xl font-bold text-primary mb-1 font-display">
                     {metric.value}
                   </div>
-                  
+
                   {/* Subtle label - fixed height container */}
                   <div className="text-xs md:text-sm text-muted-foreground text-center leading-tight h-8 flex items-center justify-center">
                     {metric.label}
@@ -98,7 +100,7 @@ const Hero = () => {
 
         {/* Client logos */}
         <div className="mt-16">
-          <p 
+          <p
             className="text-sm text-muted-foreground text-center mb-6"
             style={{ textShadow: "0 2px 8px rgba(0, 0, 0, 0.8)" }}
           >

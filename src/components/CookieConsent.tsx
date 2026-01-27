@@ -1,3 +1,5 @@
+"use client";
+
 interface CookieConsentProps {
   onAccept: () => void;
   onDecline: () => void;
@@ -5,20 +7,24 @@ interface CookieConsentProps {
 
 const CookieConsent = ({ onAccept, onDecline }: CookieConsentProps) => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6">
-      <div className="section-container">
-        <div className="glass-card p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground text-center md:text-left">
-            We use analytics cookies to understand how you use our website. Analytics are disabled by default.
-          </p>
-          <div className="flex gap-3 shrink-0">
-            <button onClick={onDecline} className="btn-secondary text-sm">
-              Decline
-            </button>
-            <button onClick={onAccept} className="btn-primary text-sm">
-              Accept
-            </button>
-          </div>
+    <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-sm z-50">
+      <div className="glass-card p-4">
+        <p className="text-sm text-muted-foreground mb-4">
+          We use cookies to analyze site usage. Your choice will be remembered.
+        </p>
+        <div className="flex gap-2">
+          <button
+            onClick={onDecline}
+            className="btn-secondary text-sm px-4 py-2 flex-1"
+          >
+            Decline
+          </button>
+          <button
+            onClick={onAccept}
+            className="btn-primary text-sm px-4 py-2 flex-1"
+          >
+            Accept
+          </button>
         </div>
       </div>
     </div>
