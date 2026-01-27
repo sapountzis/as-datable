@@ -3,6 +3,7 @@ import { IBM_Plex_Serif, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import Layout from "@/components/layout/Layout";
 
 const ibmPlexSerif = IBM_Plex_Serif({
 	variable: "--font-display",
@@ -68,7 +69,9 @@ export default function RootLayout({
 			<body
 				className={`${ibmPlexSerif.variable} ${plusJakartaSans.variable} antialiased`}
 			>
-				{children}
+				<Layout>
+					{children}
+				</Layout>
 				<Toaster />
 			</body>
 		</html>

@@ -1,4 +1,5 @@
 import { AnimateIn } from "@/components/ui/AnimateIn";
+import Image from "next/image";
 
 const skills = [
   "LLM systems",
@@ -31,10 +32,12 @@ const About = () => {
           <AnimateIn delay={100} className="lg:col-span-2">
             <div className="glass-card p-6 lg:p-8 h-full">
               <div className="flex items-start gap-4 mb-6">
-                <img
+                <Image
                   src="/profile.webp"
                   alt="Andreas Sapountzis"
-                  className="w-16 h-16 rounded-full"
+                  width={64}
+                  height={64}
+                  className="w-16 h-16 rounded-full object-cover"
                 />
                 <div>
                   <h3 className="font-display text-2xl font-bold text-foreground">
