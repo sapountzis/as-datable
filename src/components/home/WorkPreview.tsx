@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 
@@ -58,7 +60,7 @@ const WorkPreview = () => {
           {featuredWork.map((work, index) => (
             <AnimateIn key={work.slug} delay={index * 75}>
               <Link
-                to={`/work/${work.slug}`}
+                href={`/work/${work.slug}`}
                 className="glass-card p-6 flex flex-col card-hover group h-full"
               >
                 <h3 className="font-display text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
@@ -84,7 +86,7 @@ const WorkPreview = () => {
         </div>
 
         <AnimateIn delay={500} className="flex justify-center mt-12">
-          <Link to="/work" className="btn-secondary group">
+          <Link href="/work" className="btn-secondary group">
             View all work
             <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>

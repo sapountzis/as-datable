@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -10,20 +13,20 @@ const navLinks = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     if (href.startsWith("/#")) {
       const id = href.replace("/#", "");
-      if (location.pathname !== "/") {
+      if (pathname !== "/") {
         // Use browser back if we came from homepage, otherwise navigate
         sessionStorage.setItem("scrollToSection", id);
         if (window.history.state?.idx > 0) {
           window.history.back();
         } else {
-          navigate("/");
+          router.push("/");
         }
       } else {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -36,7 +39,7 @@ const Header = () => {
       <div className="section-container">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <img
               src="/logo.webp"
               alt="AS"
@@ -46,7 +49,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link) =>
               link.href.startsWith("/#") ? (
                 <button
                   key={link.label}
@@ -58,13 +61,13 @@ const Header = () => {
               ) : (
                 <Link
                   key={link.label}
-                  to={link.href}
+                  href={link.href}
                   className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </Link>
               )
-            ))}
+            )}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -81,7 +84,7 @@ const Header = () => {
         {isOpen && (
           <div className="lg:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
-              {navLinks.map((link) => (
+              {navLinks.map((link) =>
                 link.href.startsWith("/#") ? (
                   <button
                     key={link.label}
@@ -93,14 +96,14 @@ const Header = () => {
                 ) : (
                   <Link
                     key={link.label}
-                    to={link.href}
+                    href={link.href}
                     onClick={() => setIsOpen(false)}
                     className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
                   >
                     {link.label}
                   </Link>
                 )
-              ))}
+              )}
             </nav>
           </div>
         )}
