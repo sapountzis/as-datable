@@ -50,12 +50,12 @@ export default function RootLayout({
 				<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 				<link rel="dns-prefetch" href="https://calendly.com" />
 
-				{/* GA4 with consent mode */}
+				{/* GA4 with consent mode - Loaded lazily to prioritize LCP */}
 				<Script
 					src="https://www.googletagmanager.com/gtag/js?id=G-0G1JNTY6WR"
-					strategy="afterInteractive"
+					strategy="lazyOnload"
 				/>
-				<Script id="gtag-init" strategy="afterInteractive">
+				<Script id="gtag-init" strategy="lazyOnload">
 					{`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

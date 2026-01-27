@@ -1,5 +1,4 @@
-/* Optimized: Load only essential font weights with display=swap for instant text rendering */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+/* Optimized: Load only essential font weights with display=swap-done via next/font in layout */
 
 @import "tailwindcss";
 
