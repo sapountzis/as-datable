@@ -71,4 +71,3 @@ Builds the OpenNext adapter and pushes the worker/assets to your Cloudflare acco
 - **Linting**: Strict ESLint + TypeScript configuration.
 
 ---
-*Reference Implementation for Advanced Agentic Coding.*
