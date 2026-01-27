@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Layout from "@/components/layout/Layout";
 
 export const metadata: Metadata = {
     title: "Privacy — Andreas Sapountzis",

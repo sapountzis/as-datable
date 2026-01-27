@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import Layout from "@/components/layout/Layout";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
 
 interface PageProps {
