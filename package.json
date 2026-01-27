@@ -40,14 +40,5 @@
 		"typescript": "^5.7.4",
 		"wrangler": "^4.60.0"
 	},
-	"packageManager": "bun@1.2.15",
-	"browserslist": [
-		"chrome > 90",
-		"firefox > 90",
-		"safari > 15",
-		"edge > 90",
-		"not ie > 0",
-		"not dead",
-		"not op_mini all"
-	]
+	"packageManager": "bun@1.2.15"
 }

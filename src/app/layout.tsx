@@ -50,6 +50,14 @@ export default function RootLayout({
 				{/* DNS prefetch for external resources */}
 				<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 				<link rel="dns-prefetch" href="https://calendly.com" />
+			</head>
+			<body
+				className={`${ibmPlexSerif.variable} ${plusJakartaSans.variable} antialiased`}
+			>
+				<Layout>
+					{children}
+				</Layout>
+				<Toaster />
 
 				{/* GA4 with consent mode - Loaded lazily to prioritize LCP */}
 				<Script
@@ -65,14 +73,6 @@ export default function RootLayout({
             gtag('config', 'G-0G1JNTY6WR');
           `}
 				</Script>
-			</head>
-			<body
-				className={`${ibmPlexSerif.variable} ${plusJakartaSans.variable} antialiased`}
-			>
-				<Layout>
-					{children}
-				</Layout>
-				<Toaster />
 			</body>
 		</html>
 	);
