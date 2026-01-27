@@ -1,10 +1,8 @@
-"use client";
-
 import { Mail } from "lucide-react";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
-const NeuralFabric = dynamic(() => import("../NeuralFabric"), { ssr: false });
+const NeuralFabric = dynamic(() => import("../NeuralFabric"));
 
 const proofMetrics = [
   { value: "86%", label: "cost reduction" },
