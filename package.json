@@ -39,5 +39,6 @@
 		"tailwindcss": "^4",
 		"typescript": "^5.7.4",
 		"wrangler": "^4.60.0"
-	}
+	},
+	"packageManager": "bun@1.2.15"
 }
