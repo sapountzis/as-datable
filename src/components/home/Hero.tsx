@@ -5,12 +5,12 @@ import { Suspense } from "react";
 const NeuralFabric = dynamic(() => import("../NeuralFabric"));
 
 const proofMetrics = [
-  { value: "86%", label: "cost reduction" },
-  { value: "88%", label: "latency improvement" },
-  { value: "90%", label: "less alert triage" },
-  { value: "30%", label: "revenue impact" },
-  { value: "1M+", label: "devices modeled" },
   { value: "100B+", label: "events processed" },
+  { value: "1M+", label: "devices modeled" },
+  { value: "90%", label: "less alert triage" },
+  { value: "4", label: "production platforms architected" },
+  { value: "3", label: "agentic systems shipped" },
+  { value: "8+", label: "years building data systems" },
 ];
 
 const clientLogos = [
@@ -39,7 +39,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Eyebrow */}
           <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-primary bg-primary/20 rounded-full border border-primary/30 backdrop-blur-sm">
-            Production AI & Data Systems Architect
+            0-to-1 Data & AI Systems Architect
           </span>
 
           {/* Name */}
@@ -49,12 +49,12 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
-            Building production AI and data systems that scale
+            Taking complex data problems from zero to production
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto text-balance">
-            I design and ship AI systems under real constraints: cost, latency, privacy, and reliability. Best for complex engineering challenges and cross-system architecture.
+            I architect and ship end-to-end data and AI systems — from classical ML to agentic workflows — that solve real business challenges. No hype, no hand-holding, no demos that never deploy.
           </p>
 
           {/* Email */}

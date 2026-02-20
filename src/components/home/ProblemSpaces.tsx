@@ -1,4 +1,4 @@
-import { Cpu, Database, Shield, Network } from "lucide-react";
+import { Cpu, Database, Brain, Network } from "lucide-react";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 
 const problemSpaces = [
@@ -13,9 +13,9 @@ const problemSpaces = [
     description: "Building pipelines at scale from ingestion to serving. Cost control, performance optimization, and operational excellence.",
   },
   {
-    icon: Shield,
-    title: "Production Reliability",
-    description: "Rescuing slow, flaky, expensive systems. Bottleneck diagnosis, production-hardening, and operational ergonomics.",
+    icon: Brain,
+    title: "Pragmatic Machine Learning",
+    description: "Choosing the right tool for the job — XGBoost when it outperforms an LLM, classical ML when explainability matters. Not every problem needs a transformer.",
   },
   {
     icon: Network,

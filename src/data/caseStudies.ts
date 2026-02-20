@@ -163,7 +163,7 @@ export const caseStudies: CaseStudyData[] = [
       "Built curated datasets for regression testing.",
       "Implemented cost controls via intelligent model routing and token-aware truncation.",
     ],
-    result: "30% revenue impact through higher note acceptance rates.",
+    result: "Measurably higher note acceptance rates through structured evaluation and quality-driven LLM ops.",
     tags: ["LLM ops", "Prompt engineering", "Eval harnesses", "Cost optimization"],
   },
   {

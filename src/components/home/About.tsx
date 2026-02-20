@@ -43,16 +43,16 @@ const About = () => {
                   <h3 className="font-display text-2xl font-bold text-foreground">
                     Andreas Sapountzis
                   </h3>
-                  <p className="text-muted-foreground">Staff-level Data & AI Systems Engineer</p>
+                  <p className="text-muted-foreground">Founding Engineer · Data & AI Architect</p>
                 </div>
               </div>
 
               <div className="space-y-4 text-muted-foreground mb-6">
                 <p>
-                  My journey started in neuroscience research, analyzing complex brain activity patterns and dynamic systems. I then moved into streaming analytics at scale, where I learned to handle real-time constraints and massive throughput. Now I focus on LLM operations and agentic systems, solving novel AI problems in production environments.
+                  I translate vague business needs into production data and AI systems — end to end, autonomously. My background spans neuroscience research, streaming analytics at massive scale, and now LLM operations and agentic systems. I&apos;m the person companies call when they need something built, not just maintained.
                 </p>
                 <p>
-                  I have worked across healthcare, gaming, enterprise tools, and scientific research wherever there are hard technical problems worth solving. M.Eng. in Electrical and Computer Engineering from Aristotle University of Thessaloniki. Based remotely, working with teams worldwide.
+                  Healthcare, gaming, enterprise tools, scientific research — I go wherever there are hard technical problems worth solving. M.Eng. in Electrical and Computer Engineering from Aristotle University of Thessaloniki. Based remotely, working with teams worldwide.
                 </p>
               </div>
 

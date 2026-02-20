@@ -4,10 +4,16 @@ import { AnimateIn } from "@/components/ui/AnimateIn";
 
 const featuredWork = [
   {
-    title: "Making Everything Fast and Cheap",
-    slug: "making-everything-fast-and-cheap",
-    teaser: "The pipeline was slow, expensive, and operationally awkward.",
-    tags: ["Polars", "Container Apps", "Infrastructure"],
+    title: "Building NPCs That Feel Alive",
+    slug: "building-npcs-that-feel-alive",
+    teaser: "Yumio needed game characters that could hold natural conversations with voice input, emotional responses, character-specific knowledge, and synchronized animations.",
+    tags: ["LLM agents", "STT/TTS", "Vector DB"],
+  },
+  {
+    title: "Synthesizing \"Super Alerts\" with Graph Theory",
+    slug: "super-alerts-with-graph-theory",
+    teaser: "Continuous, real-time monitoring floods operations teams with hundreds of overlapping alerts for a single underlying issue.",
+    tags: ["Graph Theory", "Information Theory", "LLM"],
   },
   {
     title: "Fixing Therapist Note Generation",
@@ -22,22 +28,16 @@ const featuredWork = [
     tags: ["LLM agents", "RAG", "Pattern validation"],
   },
   {
-    title: "Building NPCs That Feel Alive",
-    slug: "building-npcs-that-feel-alive",
-    teaser: "Yumio needed game characters that could hold natural conversations with voice input, emotional responses, character-specific knowledge, and synchronized animations.",
-    tags: ["LLM agents", "STT/TTS", "Vector DB"],
+    title: "Making Everything Fast and Cheap",
+    slug: "making-everything-fast-and-cheap",
+    teaser: "The pipeline was slow, expensive, and operationally awkward.",
+    tags: ["Polars", "Container Apps", "Infrastructure"],
   },
   {
     title: "Outsmarting Microsoft's $500/Month Tax",
     slug: "outsmarting-microsofts-500-tax",
     teaser: "Einbliq's data pipeline uses Azure Durable Functions — long-running tasks that can take 30+ minutes.",
     tags: ["Azure", "KEDA", "Cost optimization"],
-  },
-  {
-    title: "Synthesizing \"Super Alerts\" with Graph Theory",
-    slug: "super-alerts-with-graph-theory",
-    teaser: "Continuous, real-time monitoring floods operations teams with hundreds of overlapping alerts for a single underlying issue.",
-    tags: ["Graph Theory", "Information Theory", "LLM"],
   },
 ];
 
