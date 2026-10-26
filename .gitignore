@@ -50,3 +50,7 @@ next-env.d.ts
 
 
 !.dev.vars.example
+
+# Local browser verification artifacts
+/output/
+/.playwright-cli/

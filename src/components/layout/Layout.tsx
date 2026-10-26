@@ -1,24 +1,18 @@
-import { ReactNode } from "react";
+import { PlaybackProvider } from "@/components/figures/Explainer";
 import Header from "./Header";
 import Footer from "./Footer";
 import { CookieProvider } from "@/components/providers/CookieProvider";
-
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <CookieProvider>
-      <div className="min-h-screen flex flex-col relative">
-        {/* Background layer */}
-        <div className="fixed inset-0 bg-background" style={{ zIndex: -2 }} />
-        <Header />
-        <main className="flex-1 pt-16 lg:pt-20 relative z-10">{children}</main>
-        <Footer />
-      </div>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Header />
+      <PlaybackProvider>
+        <main id="main">{children}</main>
+      </PlaybackProvider>
+      <Footer />
     </CookieProvider>
   );
-};
-
-export default Layout;
+}

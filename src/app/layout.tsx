@@ -1,79 +1,53 @@
-import type { Metadata } from "next";
-import { IBM_Plex_Serif, Plus_Jakarta_Sans } from "next/font/google";
-import Script from "next/script";
+import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
-import { Toaster } from "@/components/ui/toaster";
+import "@/components/figures/explainers.css";
 import Layout from "@/components/layout/Layout";
 
-const ibmPlexSerif = IBM_Plex_Serif({
-	variable: "--font-display",
-	subsets: ["latin"],
-	weight: ["600", "700"],
-	display: "swap",
+const instrument = localFont({
+  src: "../../public/fonts/instrument-sans.woff2",
+  variable: "--font-instrument",
+  weight: "400 700",
+  display: "swap",
 });
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-	variable: "--font-body",
-	subsets: ["latin"],
-	weight: ["400", "500", "600", "700"],
-	display: "swap",
-});
-
 export const metadata: Metadata = {
-	metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://as-datable.com"),
-	title: "Andreas Sapountzis — Senior Data & AI Systems Engineer",
-	description:
-		"I design and build production AI systems and data platforms that work.",
-	icons: {
-		icon: "/logo.ico",
-	},
-	openGraph: {
-		title: "Andreas Sapountzis — Senior Data & AI Systems Engineer",
-		description:
-			"AI system architecture + data engineering + production software.",
-		type: "website",
-		images: ["/as-logo.webp"],
-	},
-	other: {
-		"theme-color": "#0a0d14",
-	},
+  metadataBase: new URL("https://asdatable.com"),
+  title: {
+    default: "Andreas Sapountzis — Machine learning, statistics & software",
+    template: "%s · Andreas Sapountzis",
+  },
+  description:
+    "Technical work and interests in machine learning, statistical modeling, language-model evaluation, and software. Andreas Sapountzis’s personal website.",
+  icons: { icon: "/favicon.svg" },
+  openGraph: {
+    title: "Andreas Sapountzis",
+    description: "Machine learning, statistics & software",
+    type: "website",
+    images: ["/og.png"],
+  },
+  twitter: { card: "summary_large_image" },
 };
-
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f7f9fc" },
+    { media: "(prefers-color-scheme: dark)", color: "#111923" },
+  ],
+};
 export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
-	return (
-		<html lang="en">
-			<head>
-				{/* DNS prefetch for external resources */}
-				<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-				<link rel="dns-prefetch" href="https://calendly.com" />
-			</head>
-			<body
-				className={`${ibmPlexSerif.variable} ${plusJakartaSans.variable} antialiased`}
-			>
-				<Layout>
-					{children}
-				</Layout>
-				<Toaster />
-
-				{/* GA4 with consent mode - Loaded lazily to prioritize LCP */}
-				<Script
-					src="https://www.googletagmanager.com/gtag/js?id=G-0G1JNTY6WR"
-					strategy="lazyOnload"
-				/>
-				<Script id="gtag-init" strategy="lazyOnload">
-					{`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('consent', 'default', { 'analytics_storage': 'denied' });
-            gtag('config', 'G-0G1JNTY6WR');
-          `}
-				</Script>
-			</body>
-		</html>
-	);
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.classList.add(t==='light'||t==='dark'?t:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}})()`,
+          }}
+        />
+      </head>
+      <body className={instrument.variable}>
+        <Layout>{children}</Layout>
+      </body>
+    </html>
+  );
 }

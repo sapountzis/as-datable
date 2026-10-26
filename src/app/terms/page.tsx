@@ -1,38 +1,31 @@
-import { Metadata } from "next";
-
+import type { Metadata } from "next";
 export const metadata: Metadata = {
-    title: "Terms — Andreas Sapountzis",
+  title: "Terms",
+  description: "Terms for this personal website.",
+  alternates: { canonical: "/terms" },
 };
-
 export default function TermsPage() {
-    return (
-        <section className="py-20 lg:py-28">
-            <div className="section-container">
-                <div className="max-w-2xl mx-auto">
-                    <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8">
-                        Terms
-                    </h1>
-
-                    <div className="prose prose-invert max-w-none space-y-4 text-muted-foreground">
-                        <p>
-                            All content is provided as-is.
-                        </p>
-                        <p>
-                            Consulting engagements are governed by a separate written agreement.
-                        </p>
-                        <p>
-                            For questions, email{" "}
-                            <a
-                                href="mailto:sapountzis.andreas@gmail.com"
-                                className="text-primary hover:underline"
-                            >
-                                sapountzis.andreas@gmail.com
-                            </a>
-                            .
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <article className="container simple-page">
+      <h1>Terms</h1>
+      <div className="legal-copy">
+        <p>
+          Content on this personal website is provided as-is, for general
+          information.
+        </p>
+        <p>
+          Technical illustrations labeled as illustrative or synthetic explain a
+          method. They are not measurements from a production system.
+        </p>
+        <p>
+          A separate written agreement governs any professional engagement. For
+          questions, contact{" "}
+          <a href="mailto:sapountzis.andreas@gmail.com">
+            sapountzis.andreas@gmail.com
+          </a>
+          .
+        </p>
+      </div>
+    </article>
+  );
 }

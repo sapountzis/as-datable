@@ -1,38 +1,34 @@
-import { Metadata } from "next";
-
+import type { Metadata } from "next";
 export const metadata: Metadata = {
-    title: "Privacy — Andreas Sapountzis",
+  title: "Privacy",
+  description:
+    "Contact information and analytics preferences for this website.",
+  alternates: { canonical: "/privacy" },
 };
-
 export default function PrivacyPage() {
-    return (
-        <section className="py-20 lg:py-28">
-            <div className="section-container">
-                <div className="max-w-2xl mx-auto">
-                    <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8">
-                        Privacy
-                    </h1>
-
-                    <div className="prose prose-invert max-w-none space-y-4 text-muted-foreground">
-                        <p>
-                            This website collects messages you submit via forms (name, email, and message content) so Andreas can respond.
-                        </p>
-                        <p>
-                            Analytics are disabled by default and only enabled if you consent via the cookie banner.
-                        </p>
-                        <p>
-                            If you want your data removed, email{" "}
-                            <a
-                                href="mailto:sapountzis.andreas@gmail.com"
-                                className="text-primary hover:underline"
-                            >
-                                sapountzis.andreas@gmail.com
-                            </a>
-                            .
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <article className="container simple-page">
+      <h1>Privacy</h1>
+      <div className="legal-copy">
+        <p>
+          Contact links on this website open your email application. The website
+          does not have a contact form.
+        </p>
+        <p>
+          Optional usage analytics are loaded only when you accept analytics
+          cookies. You can decline them, or change your choice using Cookie
+          preferences in the footer. Your choice and theme preference are stored
+          in your browser.
+        </p>
+        <p>
+          To ask about information shared by email or to request its removal,
+          contact{" "}
+          <a href="mailto:sapountzis.andreas@gmail.com">
+            sapountzis.andreas@gmail.com
+          </a>
+          .
+        </p>
+      </div>
+    </article>
+  );
 }

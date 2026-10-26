@@ -1,18 +1,10 @@
 "use client";
-
 import { useCookieSettings } from "@/components/providers/CookieProvider";
-
-const CookiePreferencesButton = () => {
-    const { openSettings } = useCookieSettings();
-
-    return (
-        <button
-            onClick={openSettings}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-            Cookie preferences
-        </button>
-    );
-};
-
-export default CookiePreferencesButton;
+export default function CookiePreferencesButton() {
+  const { openSettings } = useCookieSettings();
+  return (
+    <button className="text-button" type="button" onClick={openSettings}>
+      Cookie preferences
+    </button>
+  );
+}
